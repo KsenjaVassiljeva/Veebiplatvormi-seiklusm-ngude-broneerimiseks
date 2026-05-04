@@ -72,6 +72,7 @@ nav a {
   transition: 0.3s;
 }
 
+
 .logo img {
   height: 70px;
   width: auto;
@@ -120,5 +121,5 @@ nav a {
 .footer {
   text-align: center;
   padding: 30px;
-  background: #CBDBE8;
+  background: #cdd7e1;
 }
