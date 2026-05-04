@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/book.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
+  <title>Booking</title>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="logo">
+    </a>
+
+    <nav class="nav">
+      <a href="catalog.html" data-key="catalog">Catalog</a>
+      <span>|</span>
+      <a href="contacts.html" data-key="contact">Contact</a>
+      <span>|</span>
+      <a href="about.html" data-key="about">About us</a>
+    </nav>
+
+    <div class="actions">
+      <button class="language">EN</button>
+      <a class="login" href="login.html" data-key="login">Log in</a>
+    </div>
+  </div>
+</header>
+
+<main class="booking-page">
+  <h1 data-key="bookingTitle">Booking</h1>
+
+  <form class="booking-card">
+    <label>
+      <span data-key="questName">Quest</span>
+      <select>
+        <option>The Secret of the Kidnapper</option>
+        <option>Hunter and prey</option>
+        <option>Magium</option>
+      </select>
+    </label>
+
+    <label>
+      <span data-key="date">Date</span>
+      <input type="date">
+    </label>
+
+    <label>
+      <span data-key="time">Time</span>
+      <input type="time">
+    </label>
+
+    <label>
+      <span data-key="people">Number of people</span>
+      <input type="number" min="1" max="20" value="1">
+    </label>
+
+    <label>
+      <span data-key="name">Name</span>
+      <input type="text" placeholder="Your name">
+    </label>
+
+    <label>
+      <span data-key="email">Email</span>
+      <input type="email" placeholder="Email">
+    </label>
+
+    <button type="submit" class="booking-btn" data-key="bookBtn">Book now</button>
+  </form>
+</main>
+
+<footer class="footer">
+  <img src="images/mini-logo.png" alt="logo">
+  Questoria 2025–2026
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
