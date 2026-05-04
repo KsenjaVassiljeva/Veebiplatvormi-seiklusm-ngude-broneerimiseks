@@ -1,4 +1,4 @@
-const elements = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".card");
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -7,6 +7,10 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 });
+
+cards.forEach(card => observer.observe(card));
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -26,3 +30,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+

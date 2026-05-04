@@ -158,6 +158,13 @@ a {
   border-radius: 12px;
   overflow: hidden;
   transition: 0.3s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
