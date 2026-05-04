@@ -14,12 +14,13 @@
                 <img src="images/logo.png" alt="logo">
             </a>
             <nav class="nav">
-                <a href="catalog.html">Catalog</a>
+                <a href="catalog.html" data-key="catalog">Catalog</a>
                 <span>|</span>
-                <a href="contacts.html">Contact</a>
+                <a href="contacts.html" data-key="contact">Contact</a>
                 <span>|</span>
-                <a href="about.html">About us</a>
+                <a href="about.html" data-key="about">About us</a>
             </nav>
+
             <div class="actions">
                 <button class="language">En</button>
                 <a class="login" href="login.html">Log in</a>
@@ -32,37 +33,37 @@
     </section>
 
 <section class="quests">
-    <h2>Recommended quests</h2>
+    <h2 data-key="recommended">Recommended quests</h2>
     <div class="cards">
         <a class="card" href="quest.html">
             <img src="images/img1.png" alt="The Secret of the Kidnapper"/>
-            <h3>The Secret of the Kidnapper</h3>
-            <p>€5 per person</p>
+            <h3 data-key="quest1">The Secret of the Kidnapper</h3>
+            <p data-key="price1">€5 per person</p>
         </a>
         <a class="card" href="quest.html">
             <img src="images/img2.png" alt="Hunter and prey"/>
-            <h3>Hunter and prey</h3>
-            <p>€3 per person</p>
+            <h3 data-key="quest2">Hunter and prey</h3>
+            <p data-key="price2">€3 per person</p>
         </a>
         <a class="card" href="quest.html">
             <img src="images/img3.png" alt="Magium"/>
-            <h3>Magium</h3>
-            <p>€7 per person</p>
+            <h3 data-key="quest3">Magium</h3>
+            <p data-key="price3">€7 per person</p>
         </a>
     </div>
-    <a class="more" href="catalog.html">More</a>
+    <a class="more" href="catalog.html" data-key="more">More</a>
 </section>
 
     <section class="about">
         <div class="container about-content">
             <img src="images/team.png" alt="Our team"/>
             <div>
-                <h2>About us</h2>
-                <p>
+                <h2 data-key="aboutTitle">About us</h2>
+                <p data-key="aboutText">
                     Questoria is a team of enthusiasts who create live role-playing games (questories),
                     where participants become the heroes of the story.
                 </p>
-                <a class="seemore" href="about.html">See more</a>
+                <a class="seemore" href="about.html" data-key="seeMore">See more</a>
             </div>
         </div>
     </section>
@@ -73,5 +74,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/lang.js"></script>
 </body>
 </html>
