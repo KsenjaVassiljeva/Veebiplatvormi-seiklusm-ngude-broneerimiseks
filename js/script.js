@@ -31,3 +31,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (e) => {
+    const email = form.querySelector('input[type="email"]');
+    const password = form.querySelector('input[type="password"]');
+
+    const emailError = form.querySelector(".email-error");
+    const passwordError = form.querySelector(".password-error");
+
+    emailError.textContent = "";
+    passwordError.textContent = "";
+
+    let valid = true;
+
+    if (!email.value.includes("@")) {
+      emailError.textContent = "Неверный email";
+      valid = false;
+    }
+
+    if (password.value.length < 6) {
+      passwordError.textContent = "Минимум 6 символов";
+      valid = false;
+    }
+
+    if (!valid) e.preventDefault();
+  });
+
+});
