@@ -8,4 +8,21 @@ const observer = new IntersectionObserver(entries => {
   });
 });
 
-elements.forEach(el => observer.observe(el));
+document.addEventListener("DOMContentLoaded", () => {
+
+  const passwordInput = document.querySelector('input[type="password"]');
+
+  if (!passwordInput) return;
+
+  const toggle = document.createElement("button");
+  toggle.textContent = "👁";
+  toggle.type = "button";
+
+  passwordInput.parentElement.append(toggle);
+
+  toggle.addEventListener("click", () => {
+    passwordInput.type =
+      passwordInput.type === "password" ? "text" : "password";
+  });
+
+});
