@@ -1,0 +1,305 @@
+:root {
+  --font-title: 'Kalnia', serif;
+  --font-text: 'Lora', serif;
+
+  --bg-main: #EEF3F4;
+  --bg-blue: #CBDBE8;
+  --button-blue-1: #9CC7EA;
+  --button-blue-2: #78B3E0;
+  --text-dark: #111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-dark);
+  font-family: var(--font-text);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  margin: 0;
+}
+
+a {
+  font-family: var(--font-title);
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-text);
+  cursor: pointer;
+  border: none;
+}
+
+/* HEADER */
+
+.header {
+  height: 110px;
+  background: var(--bg-blue);
+}
+
+.header-container {
+  width: 1200px;
+  max-width: 90%;
+  height: 100%;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 180px 1fr 300px;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+
+  font-family: var(--font-title);
+  font-size: 30px;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 80px;
+}
+
+.lang,
+.login,
+.book-btn {
+  background: linear-gradient(180deg, var(--button-blue-1), var(--button-blue-2));
+  color: white;
+  transition: 0.3s;
+}
+
+.lang:hover,
+.login:hover,
+.book-btn:hover {
+  transform: translateY(-2px);
+}
+
+.lang {
+  width: 54px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 24px;
+}
+
+.login {
+  width: 175px;
+  height: 42px;
+  border-radius: 18px;
+  font-size: 24px;
+}
+
+/* QUEST PAGE */
+
+.quest-page {
+  padding: 100px 70px 140px;
+}
+
+.quest-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.quest-main-img {
+  width: 560px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.quest-text {
+  width: 520px;
+  text-align: center;
+}
+
+.quest-text h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.quest-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+.quest-text p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.book-btn {
+  margin-top: 15px;
+  width: 110px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 16px;
+}
+
+/* GALLERY */
+
+.gallery {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.gallery h2,
+.reviews h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  width: 890px;
+  max-width: 100%;
+  margin: 50px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 55px;
+}
+
+.gallery-grid div {
+  height: 240px;
+  background: #d9d9d9;
+  border-radius: 8px;
+}
+
+/* REVIEWS */
+
+.reviews {
+  margin-top: 130px;
+  text-align: center;
+}
+
+.review-card {
+  width: 470px;
+  max-width: 100%;
+  margin: 50px auto 0;
+
+  background: #c8ddf0;
+  border-radius: 10px;
+  padding: 22px 28px;
+  text-align: left;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 50%;
+}
+
+.review-header h3 {
+  font-size: 24px;
+  font-weight: 400;
+  flex: 1;
+}
+
+.review-card p {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.review-icons {
+  font-size: 24px;
+}
+
+/* ADAPTIVE */
+
+@media (max-width: 1000px) {
+  .header {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .header-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .actions {
+    gap: 30px;
+  }
+
+  .quest-info {
+    flex-direction: column;
+  }
+
+  .quest-text {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .quest-page {
+    padding: 60px 20px 100px;
+  }
+
+  .nav {
+    font-size: 22px;
+    flex-wrap: wrap;
+  }
+
+  .quest-main-img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .quest-text h1,
+  .gallery h2,
+  .reviews h2 {
+    font-size: 32px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
