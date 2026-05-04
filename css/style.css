@@ -142,7 +142,7 @@ h1, h2, h3, a {
 
 .more{
    margin-top: 30px;
-   display: block;
+   display: inline-block;
    margin: 40px auto 0;
    padding: 10px 30px;
    background: linear-gradient(180deg, #9fc2e6, #7faad4);
@@ -151,6 +151,7 @@ h1, h2, h3, a {
    border-radius: 12px;
    font-family: 'Lora', serif;
    cursor: pointer;
+   text-decoration: none;
 }
 
 .more:hover {
@@ -171,7 +172,7 @@ h1, h2, h3, a {
 
 .seemore {
    margin-top: 30px;
-   display: block;
+   display: inline-block;
    margin: 40px auto 0;
    padding: 10px 30px;
    background: linear-gradient(180deg, #9fc2e6, #7faad4);
