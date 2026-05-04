@@ -5,11 +5,9 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
   background: #E8EEEE;
-  font-family: var(--font-text);
+  font-family: var(--font-text); /* убран дублирующий sans-serif */
 }
-
 
 h1, h2, h3, a {
   font-family: var(--font-title);
@@ -17,6 +15,7 @@ h1, h2, h3, a {
 
 .container {
   width: 1200px;
+  max-width: 90%; /* добавлено для адаптивности */
   margin: 0 auto;
 }
 
@@ -25,7 +24,6 @@ h1, h2, h3, a {
   padding: 15px 0;
   transition: 0.3s;
 }
-
 
 .header a:hover {
   color: #000000;
@@ -41,7 +39,7 @@ h1, h2, h3, a {
   height: 400px;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   overflow: hidden;
 }
 
@@ -51,19 +49,13 @@ h1, h2, h3, a {
   object-fit: cover;
 }
 
-@keyframes zoom {
-  from { background-size: 100%; }
-  to { background-size: 110%; }
-}
-
-
 .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    font-family: 'Kalnia', serif;
-    font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-title);
+  font-size: 30px;
 }
 
 .nav a {
@@ -75,44 +67,36 @@ h1, h2, h3, a {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Kalnia', serif;
+  font-family: var(--font-title);
   font-size: 32px;
 }
-
 
 .logo img {
   height: 70px;
   width: auto;
 }
 
-.login:hover {
-  transform: translateY(-2px);
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.login {
-  padding: 10px 24px;
-  background: linear-gradient(180deg, #9fc2e6, #7faad4);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-family: 'Lora', serif;
-  font-size: 16px;
-  cursor: pointer;
-}
-
+.login,
 .language {
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 8px 18px;
   background: linear-gradient(180deg, #9fc2e6, #7faad4);
   color: white;
   border: none;
   border-radius: 12px;
-  font-family: 'Lora', serif;
+  font-family: var(--font-text);
   font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.button:hover {
+.login:hover,
+.language:hover { /* исправлено: было .button:hover */
   transform: translateY(-2px);
 }
 
@@ -140,18 +124,17 @@ h1, h2, h3, a {
   object-fit: cover;
 }
 
-.more{
-   margin-top: 30px;
-   display: inline-block;
-   margin: 40px auto 0;
-   padding: 10px 30px;
-   background: linear-gradient(180deg, #9fc2e6, #7faad4);
-   color: white;
-   border: none;
-   border-radius: 12px;
-   font-family: 'Lora', serif;
-   cursor: pointer;
-   text-decoration: none;
+.more {
+  display: inline-block;
+  margin: 40px auto 0; /* убран дублирующий margin-top: 30px */
+  padding: 10px 30px;
+  background: linear-gradient(180deg, #9fc2e6, #7faad4);
+  color: white;
+  border-radius: 12px;
+  font-family: var(--font-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .more:hover {
@@ -171,16 +154,16 @@ h1, h2, h3, a {
 }
 
 .seemore {
-   margin-top: 30px;
-   display: inline-block;
-   margin: 40px auto 0;
-   padding: 10px 30px;
-   background: linear-gradient(180deg, #9fc2e6, #7faad4);
-   color: white;
-   border: none;
-   border-radius: 12px;
-   font-family: 'Lora', serif;
-   cursor: pointer;
+  display: inline-block;
+  margin: 40px auto 0;
+  padding: 10px 30px;
+  background: linear-gradient(180deg, #9fc2e6, #7faad4);
+  color: white;
+  border-radius: 12px;
+  font-family: var(--font-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .seemore:hover {
@@ -198,6 +181,6 @@ h1, h2, h3, a {
   color: #A0BBD0;
 }
 
-.footer img{
+.footer img {
   height: 60px;
 }
