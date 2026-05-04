@@ -82,6 +82,33 @@ nav a {
   transform: translateY(-2px);
 }
 
+.login {
+  padding: 10px 24px;
+  background: linear-gradient(180deg, #9fc2e6, #7faad4);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.language {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #9fc2e6, #7faad4);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
 .quests {
   text-align: center;
   padding: 60px 0;
