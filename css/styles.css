@@ -20,7 +20,6 @@ h1, h2, h3, a {
   margin: 0 auto;
 }
 
-/* HEADER */
 .header {
   background: #CBDBE8;
   padding: 15px 0;
@@ -133,6 +132,23 @@ nav a {
   object-fit: cover;
 }
 
+.more{
+   margin-top: 30px;
+   display: block;
+   margin: 40px auto 0;
+   padding: 10px 30px;
+   background: linear-gradient(180deg, #9fc2e6, #7faad4);
+   color: white;
+   border: none;
+   border-radius: 12px;
+   font-family: 'Lora', serif;
+   cursor: pointer;
+}
+
+.more:hover {
+  transform: translateY(-2px);
+}
+
 .about-content {
   display: flex;
   gap: 40px;
@@ -145,8 +161,34 @@ nav a {
   border-radius: 16px;
 }
 
+.seemore {
+   margin-top: 30px;
+   display: block;
+   margin: 40px auto 0;
+   padding: 10px 30px;
+   background: linear-gradient(180deg, #9fc2e6, #7faad4);
+   color: white;
+   border: none;
+   border-radius: 12px;
+   font-family: 'Lora', serif;
+   cursor: pointer;
+}
+
+.seemore:hover {
+  transform: translateY(-2px);
+}
+
 .footer {
-  text-align: center;
-  padding: 30px;
-  background: #cdd7e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background: #CBDBE8;
+  color: #A0BBD0;
+}
+
+.footer img{
+  height: 60px;
 }
