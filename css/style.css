@@ -56,19 +56,27 @@ h1, h2, h3, a {
   to { background-size: 110%; }
 }
 
-nav {
+
+.nav {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Kalnia', serif;
+    font-size: 30px;
 }
 
-nav a {
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
+.nav a {
+  text-decoration: none;
+  color: #111;
 }
 
-.login {
-  transition: 0.3s;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Kalnia', serif;
+  font-size: 32px;
 }
 
 
