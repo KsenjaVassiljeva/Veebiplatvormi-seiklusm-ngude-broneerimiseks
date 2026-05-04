@@ -1,65 +1,63 @@
 :root {
   --font-title: 'Kalnia', serif;
   --font-text: 'Lora', serif;
- 
   --bg-main: #EEF3F4;
   --bg-blue: #CBDBE8;
   --button-blue-1: #9CC7EA;
   --button-blue-2: #78B3E0;
   --text-dark: #111;
 }
- 
+
 * {
   box-sizing: border-box;
 }
- 
+
 body {
   margin: 0;
   background: var(--bg-main);
   color: var(--text-dark);
   font-family: var(--font-text);
 }
- 
+
 h1, h2, h3 {
   font-family: var(--font-title);
   margin: 0;
 }
- 
+
 a {
   font-family: var(--font-title);
   color: inherit;
   text-decoration: none;
 }
- 
+
 button {
   font-family: var(--font-text);
   cursor: pointer;
   border: none;
 }
- 
+
 .container {
   width: 1200px;
   max-width: 90%;
   margin: 0 auto;
 }
- 
+
 .header {
   height: 110px;
   background: var(--bg-blue);
   transition: 0.3s;
 }
- 
+
 .header-container {
   width: 1200px;
   max-width: 90%;
   height: 100%;
   margin: 0 auto;
- 
   display: grid;
   grid-template-columns: 180px 1fr 300px;
   align-items: center;
 }
- 
+
 .logo {
   display: flex;
   align-items: center;
@@ -67,61 +65,59 @@ button {
   font-family: var(--font-title);
   font-size: 32px;
 }
- 
+
 .logo img {
   height: 70px;
   width: auto;
 }
- 
+
 .nav {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 14px;
- 
   font-family: var(--font-title);
   font-size: 30px;
 }
- 
+
 .nav a {
-  text-decoration: none;
   color: var(--text-dark);
 }
- 
+
 .nav a:hover {
   opacity: 0.7;
 }
- 
+
 .actions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 16px;
 }
- 
+
 .lang,
+.language,
 .login,
 .book-btn,
 .more,
-.seemore,
-.language {
+.seemore {
   background: linear-gradient(180deg, var(--button-blue-1), var(--button-blue-2));
   color: white;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s;
   font-family: var(--font-text);
 }
- 
+
 .lang:hover,
+.language:hover,
 .login:hover,
 .book-btn:hover,
 .more:hover,
-.seemore:hover,
-.language:hover {
+.seemore:hover {
   transform: translateY(-2px);
 }
- 
+
 .lang,
 .language {
   width: 54px;
@@ -129,14 +125,14 @@ button {
   border-radius: 10px;
   font-size: 24px;
 }
- 
+
 .login {
   width: 175px;
   height: 46px;
   border-radius: 18px;
   font-size: 24px;
 }
- 
+
 .book-btn {
   margin-top: 15px;
   width: 110px;
@@ -144,7 +140,7 @@ button {
   border-radius: 15px;
   font-size: 16px;
 }
- 
+
 .more,
 .seemore {
   display: block;
@@ -152,9 +148,9 @@ button {
   padding: 10px 30px;
   border-radius: 12px;
   font-size: 20px;
-  text-decoration: none;
   text-align: center;
   width: fit-content;
+  text-decoration: none;
 }
 
 .hero {
@@ -164,41 +160,41 @@ button {
   align-items: center;
   overflow: hidden;
 }
- 
+
 .hero img {
   width: 100%;
   height: 90%;
   object-fit: cover;
 }
- 
+
 .quest-page {
   padding: 100px 70px 140px;
 }
- 
+
 .quest-info {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 70px;
 }
- 
+
 .quest-main-img {
   width: 560px;
   height: 330px;
   object-fit: cover;
   border-radius: 12px;
 }
- 
+
 .quest-text {
   width: 520px;
   text-align: center;
 }
- 
+
 .quest-text h1 {
   font-size: 42px;
   margin-bottom: 20px;
 }
- 
+
 .quest-meta {
   display: flex;
   justify-content: center;
@@ -207,24 +203,24 @@ button {
   margin-bottom: 18px;
   font-size: 16px;
 }
- 
+
 .quest-text p {
   margin: 0 0 14px;
   font-size: 16px;
   line-height: 1.35;
 }
- 
+
 .quests,
 .catalog {
   padding: 130px 0 180px;
   text-align: center;
 }
- 
+
 .quests h2 {
   font-size: 42px;
   margin-bottom: 20px;
 }
- 
+
 .cards {
   width: 930px;
   margin: 0 auto;
@@ -234,7 +230,7 @@ button {
   row-gap: 70px;
   justify-content: center;
 }
- 
+
 .card {
   background: white;
   border-radius: 14px;
@@ -244,94 +240,95 @@ button {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
- 
+
 .card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
- 
+
 .card img {
   width: 100%;
   height: 175px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
- 
+
 .card:hover img {
   transform: scale(1.06);
 }
- 
+
 .card h3 {
   margin: 18px 12px 4px;
-  font-family: var(--font-title);
   font-size: 17px;
   line-height: 1.2;
 }
- 
+
 .card p {
   margin: 0 12px 12px;
   font-size: 14px;
 }
- 
+
 .rating {
   margin: 18px 12px;
   font-size: 18px;
 }
- 
+
 .rating span {
   font-size: 11px;
   margin-left: 4px;
 }
- 
+
 .gallery {
   margin-top: 90px;
   text-align: center;
 }
- 
-.gallery h2,
-.reviews h2 {
+
+.gallery h2 {
   font-size: 42px;
   margin-bottom: 20px;
 }
- 
+
 .gallery-grid {
   width: 890px;
   max-width: 100%;
   margin: 50px auto 0;
- 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px 55px;
 }
- 
+
 .gallery-grid div {
   height: 240px;
   background: #d9d9d9;
   border-radius: 8px;
 }
- 
+
 .reviews {
   margin-top: 130px;
   text-align: center;
 }
- 
+
+.reviews h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
 .review-card {
   width: 470px;
   max-width: 100%;
   margin: 50px auto 0;
- 
   background: #c8ddf0;
   border-radius: 10px;
   padding: 22px 28px;
   text-align: left;
 }
- 
+
 .review-header {
   display: flex;
   align-items: center;
   gap: 18px;
 }
- 
+
 .avatar {
   width: 70px;
   height: 70px;
@@ -339,22 +336,22 @@ button {
   background: white;
   border-radius: 50%;
 }
- 
+
 .review-header h3 {
   font-size: 24px;
   font-weight: 400;
   flex: 1;
 }
- 
+
 .review-card p {
   font-size: 16px;
   line-height: 1.3;
 }
- 
+
 .review-icons {
   font-size: 24px;
 }
- 
+
 .about-content {
   display: flex;
   gap: 40px;
@@ -362,17 +359,57 @@ button {
   justify-content: center;
   padding: 60px 0;
 }
- 
+
 .about img {
   width: 400px;
   border-radius: 16px;
 }
- 
+
 .about-text {
   max-width: 450px;
   text-align: center;
 }
- 
+
+.contacts-page {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  padding: 80px 70px 140px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contacts-info {
+  flex: 1;
+}
+
+.contacts-info h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+.contact-block {
+  margin-bottom: 28px;
+}
+
+.contact-block h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.contact-block p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.map {
+  flex: 1;
+  min-height: 420px;
+  background: #c8ddf0;
+  border-radius: 16px;
+}
+
 .footer {
   height: 110px;
   background: var(--bg-blue);
@@ -384,90 +421,100 @@ button {
   gap: 6px;
   padding: 20px;
 }
- 
+
 .footer img {
   height: 60px;
   width: auto;
 }
- 
+
 .footer p {
   margin: 0;
   font-size: 16px;
 }
- 
+
 @media (max-width: 1000px) {
   .header {
     height: auto;
     padding: 20px 0;
   }
- 
+
   .header-container {
     grid-template-columns: 1fr;
     gap: 20px;
     justify-items: center;
   }
- 
-  .actions {
-    gap: 30px;
-  }
- 
+
   .logo,
   .nav {
     justify-content: center;
   }
- 
+
+  .actions {
+    gap: 30px;
+  }
+
   .quest-info {
     flex-direction: column;
   }
- 
+
   .quest-text {
     width: 100%;
   }
- 
+
   .cards {
     width: 90%;
     grid-template-columns: repeat(2, 1fr);
   }
- 
+
   .about-content {
     flex-direction: column;
   }
 }
- 
+
+@media (max-width: 800px) {
+  .contacts-page {
+    flex-direction: column;
+    padding: 60px 20px 100px;
+  }
+
+  .map {
+    width: 100%;
+  }
+}
+
 @media (max-width: 600px) {
   .quest-page {
     padding: 60px 20px 100px;
   }
- 
+
   .nav {
     font-size: 22px;
     flex-wrap: wrap;
   }
- 
+
   .quest-main-img {
     width: 100%;
     height: 220px;
   }
- 
+
   .quest-text h1,
   .gallery h2,
   .reviews h2,
   .quests h2 {
     font-size: 32px;
   }
- 
+
   .gallery-grid,
   .cards {
     grid-template-columns: 1fr;
   }
- 
+
   .actions {
     flex-direction: column;
     gap: 15px;
   }
- 
+
   .about img {
     width: 90%;
   }
 }
- 
