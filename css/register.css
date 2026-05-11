@@ -19,6 +19,7 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 button {
@@ -51,15 +52,11 @@ button {
   font-size: 18px;
 }
 
-.nav a {
-  color: #111;
-  text-decoration: none;
-}
-
 .actions {
   display: flex;
   justify-content: flex-end;
   gap: 45px;
+  align-items: center;
 }
 
 .lang {
@@ -76,11 +73,15 @@ button {
   border-radius: 10px;
   background: var(--dark-blue);
   color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* LOGIN */
+/* REGISTER */
 
-.login-page {
+.register-page {
   min-height: calc(100vh - 160px);
   display: flex;
   justify-content: center;
@@ -88,7 +89,7 @@ button {
   padding: 60px 20px;
 }
 
-.login-card {
+.register-card {
   width: 330px;
   padding: 24px 24px 28px;
   background: var(--bg-blue);
@@ -96,40 +97,57 @@ button {
   text-align: center;
 }
 
-.login-card h1 {
+.register-card h1 {
   margin: -58px 0 22px;
   font-family: var(--font-title);
   font-size: 28px;
   font-weight: 400;
 }
 
-.login-card form {
+.register-card form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 14px;
 }
 
-.login-card input {
+.name-row {
+  display: flex;
+  gap: 8px;
+}
+
+.name-row input {
+  width: 50%;
+}
+
+.register-card input {
   width: 100%;
   height: 38px;
-  margin-bottom: 16px;
-  padding: 0 22px;
+  padding: 0 18px;
   border: none;
   border-radius: 6px;
   background: #EEF3F4;
   font-family: var(--font-text);
-  font-size: 16px;
+  font-size: 15px;
 }
 
-.small-link {
-  width: 100%;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  text-align: left;
-  font-size: 10px;
+.password-box {
+  position: relative;
 }
 
-.login-btn {
+.password-box input {
+  padding-right: 42px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  font-size: 17px;
+}
+
+.register-btn {
   width: 100%;
   height: 40px;
   border-radius: 6px;
@@ -138,8 +156,7 @@ button {
   font-size: 18px;
 }
 
-.signup {
-  margin: 12px 0 8px;
+.login-link {
   font-size: 11px;
   line-height: 1.4;
 }
@@ -148,11 +165,11 @@ button {
   width: 220px;
   height: 1px;
   background: #9bb8cc;
-  margin: 4px 0 10px;
+  margin: 0 auto;
 }
 
 .or {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 11px;
 }
 
@@ -193,52 +210,4 @@ button {
 .footer p {
   margin: 0;
   font-size: 12px;
-}
-
-/* Password */
-.password-box {
-  position: relative;
-  width: 100%;
-}
-
-.password-box input {
-  width: 100%;
-  padding-right: 45px;
-}
-
-.toggle-password {
-  position: absolute;
-  right: 12px;
-  top: 36%;
-  transform: translateY(-50%);
-
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  font-size: 18px;
-}
-
-/* ADAPTIVE */
-
-@media (max-width: 700px) {
-  .header {
-    height: auto;
-    padding: 18px;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    justify-items: center;
-  }
-
-  .actions {
-    gap: 25px;
-  }
-
-  .nav {
-    flex-wrap: wrap;
-  }
-
-  .login-card h1 {
-    margin-top: 0;
-  }
 }

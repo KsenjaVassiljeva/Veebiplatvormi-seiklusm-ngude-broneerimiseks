@@ -34,7 +34,14 @@
 
     <form>
       <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
+      
+      <div class="password-box">
+        <input type="password" placeholder="Password" id="password">
+        <button type="button" class="toggle-password">
+          👁
+        </button>
+      </div>
+      <div class="password-error"></div>
 
       <div class="small-link">
         Forgot your password? <a href="#">Click Here</a>
@@ -62,6 +69,6 @@
   <img src="images/logo-footer.png" alt="Questoria logo">
   <p>2020-2026</p>
 </footer>
-
+<script src="js/script.js"></script>
 </body>
 </html>

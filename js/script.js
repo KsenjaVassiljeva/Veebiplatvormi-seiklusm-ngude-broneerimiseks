@@ -14,19 +14,26 @@ cards.forEach(card => observer.observe(card));
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const passwordInput = document.querySelector('input[type="password"]');
+  const togglePassword =
+    document.querySelector(".toggle-password");
 
-  if (!passwordInput) return;
+  const passwordInput =
+    document.querySelector("#password");
 
-  const toggle = document.createElement("button");
-  toggle.textContent = "👁";
-  toggle.type = "button";
+  togglePassword.addEventListener("click", () => {
 
-  passwordInput.parentElement.append(toggle);
+    if (passwordInput.type === "password") {
 
-  toggle.addEventListener("click", () => {
-    passwordInput.type =
-      passwordInput.type === "password" ? "text" : "password";
+      passwordInput.type = "text";
+      togglePassword.textContent = "︶";
+
+    } else {
+
+      passwordInput.type = "password";
+      togglePassword.textContent = "👁";
+
+    }
+
   });
 
 });
