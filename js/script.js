@@ -84,3 +84,14 @@ likeButtons.forEach(button => {
     alert("Лайк поставлен!");
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userArea = document.querySelector(".user-area");
+  const user = localStorage.getItem("user");
+
+  if (user && userArea) {
+    userArea.innerHTML = `
+      <a href="profile.html" class="profile-icon">👤</a>
+    `;
+  }
+});

@@ -1,12 +1,9 @@
 :root {
   --font-title: 'Kalnia', serif;
   --font-text: 'Lora', serif;
-
   --bg-main: #EEF3F4;
   --bg-blue: #CBDBE8;
-  --button-blue-1: #9CC7EA;
-  --button-blue-2: #78B3E0;
-  --footer-text: #A0BBD0;
+  --dark-blue: #16345A;
 }
 
 * {
@@ -31,214 +28,158 @@ button {
   font-family: var(--font-text);
 }
 
-button,
-.book-btn,
-.more,
-.see-more,
-.login-small {
-  transition: 0.3s;
-}
-
-button:hover,
-.book-btn:hover,
-.more:hover,
-.see-more:hover,
-.login-small:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
-}
-
 /* HEADER */
 
 .header {
-  height: 110px;
+  height: 70px;
+  padding: 0 45px;
   background: var(--bg-blue);
-}
-
-.header-container {
-  width: 1200px;
-  max-width: 95%;
-  height: 100%;
-  margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 220px 1fr 300px;
+  grid-template-columns: 170px 1fr 220px;
   align-items: center;
 }
 
 .logo img {
-  height: 72px;
-  width: auto;
+  height: 48px;
 }
 
 .nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 14px;
-
+  gap: 10px;
   font-family: var(--font-title);
-  font-size: 30px;
+  font-size: 18px;
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 80px;
-}
-
-.lang,
-.login {
-  background: linear-gradient(180deg, var(--button-blue-1), var(--button-blue-2));
-  color: white;
-  transition: 0.3s;
-}
-
-.lang:hover,
-.login:hover {
-  transform: translateY(-2px);
+  gap: 45px;
 }
 
 .lang {
-  width: 54px;
-  height: 50px;
-  border-radius: 10px;
-  font-size: 24px;
+  width: 36px;
+  height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #9CC7EA, #78B3E0);
+  color: white;
 }
 
-.login {
-  width: 175px;
-  height: 42px;
-  border-radius: 18px;
-  font-size: 24px;
+.login-small {
+  width: 90px;
+  height: 28px;
+  border-radius: 10px;
+  background: var(--dark-blue);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* CONTACTS */
 
 .contacts-page {
-  min-height: calc(100vh - 220px);
-  padding: 105px 70px 80px;
+  min-height: calc(100vh - 160px);
+  padding: 65px 60px;
 
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 130px;
+  gap: 120px;
 }
 
 .contacts-info {
-  width: 470px;
+  width: 360px;
   text-align: center;
 }
 
 .contacts-info h1 {
   margin: 0 0 8px;
   font-family: var(--font-title);
-  font-size: 54px;
+  font-size: 40px;
   font-weight: 400;
 }
 
 .contact-block {
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 .contact-block h2 {
   margin: 0 0 4px;
   font-family: var(--font-title);
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 400;
 }
 
 .contact-block p {
   margin: 0;
-  font-size: 26px;
+  font-size: 18px;
   line-height: 1.25;
 }
 
 .map {
-  margin-top: 85px;
-  width: 560px;
-  height: 560px;
+  width: 360px;
+  height: 360px;
+  margin-top: 70px;
   background: #d9d9d9;
 }
 
 /* FOOTER */
 
 .footer {
-  height: 110px;
+  height: 90px;
   background: var(--bg-blue);
-  color: var(--footer-text);
+  color: #A0BBD0;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .footer img {
-  width: 200px;
+  width: 130px;
   opacity: 0.7;
 }
 
 .footer p {
   margin: 0;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 /* ADAPTIVE */
 
-@media (max-width: 1000px) {
+@media (max-width: 750px) {
   .header {
     height: auto;
-    padding: 20px 0;
-  }
-
-  .header-container {
+    padding: 18px;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
     justify-items: center;
   }
 
+  .nav {
+    flex-wrap: wrap;
+  }
+
   .actions {
-    gap: 30px;
+    gap: 25px;
   }
 
   .contacts-page {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-    padding: 70px 20px;
+    gap: 30px;
+    padding: 50px 20px;
   }
 
   .map {
-    margin-top: 0;
-    width: 90%;
-    height: 350px;
-  }
-}
-
-@media (max-width: 600px) {
-  .nav {
-    font-size: 22px;
-    flex-wrap: wrap;
-  }
-
-  .contacts-info {
     width: 100%;
-  }
-
-  .contacts-info h1 {
-    font-size: 42px;
-  }
-
-  .contact-block h2,
-  .contact-block p {
-    font-size: 20px;
-  }
-
-  .actions {
-    flex-direction: column;
-    gap: 15px;
+    max-width: 360px;
+    margin-top: 0;
   }
 }
