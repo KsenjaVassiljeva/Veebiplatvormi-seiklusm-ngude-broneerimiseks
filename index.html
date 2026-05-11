@@ -1,79 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
-    <title>Veebiplatvormi-seiklusm-ngude-broneerimiseks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
+  <title>Questoria</title>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="logo">
-            </a>
-            <nav class="nav">
-                <a href="catalog.html" data-key="catalog">Catalog</a>
-                <span>|</span>
-                <a href="contacts.html" data-key="contact">Contact</a>
-                <span>|</span>
-                <a href="about.html" data-key="about">About us</a>
-            </nav>
 
-            <div class="actions">
-                <button class="language">En</button>
-                <a class="login" href="login.html">Log in</a>
-            </div>
-        </div>
-    </header>
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Questoria logo">
+  </a>
 
-    <section class="hero">
-        <img src="images/main.png" alt="hero">
-    </section>
+  <nav class="nav">
+    <a href="catalog.html">Cattalog</a>
+    <span>|</span>
+    <a href="contacts.html">Contact</a>
+    <span>|</span>
+    <a href="about.html">About us</a>
+  </nav>
 
-<section class="quests">
-    <h2 data-key="recommended">Recommended quests</h2>
+  <div class="actions">
+    <button class="lang">En</button>
+    <a href="login.html" class="login-small">Log in</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <img src="images/hero.jpg" alt="Quest room">
+  </section>
+
+  <section class="recommended">
+    <h1>Recommended quests</h1>
+
     <div class="cards">
-        <a class="card" href="quest.html">
-            <img src="images/img1.png" alt="The Secret of the Kidnapper"/>
-            <h3 data-key="quest1">The Secret of the Kidnapper</h3>
-            <p data-key="price1">€5 per person</p>
-        </a>
-        <a class="card" href="quest.html">
-            <img src="images/img2.png" alt="Hunter and prey"/>
-            <h3 data-key="quest2">Hunter and prey</h3>
-            <p data-key="price2">€3 per person</p>
-        </a>
-        <a class="card" href="quest.html">
-            <img src="images/img3.png" alt="Magium"/>
-            <h3 data-key="quest3">Magium</h3>
-            <p data-key="price3">€7 per person</p>
-        </a>
+      <article class="card">
+        <img src="images/quest1.jpg" alt="The Secret of the Kidnapper">
+        <h3>The Secret of the Kidnapper</h3>
+        <p>from €3 per person</p>
+        <span>★ 5.0</span>
+      </article>
+
+      <article class="card">
+        <img src="images/quest2.jpg" alt="Hunter and prey">
+        <h3>Hunter and prey</h3>
+        <p>from €3 per person</p>
+        <span>★ 5.0</span>
+      </article>
+
+      <article class="card">
+        <img src="images/quest3.jpg" alt="Magium">
+        <h3>Magium</h3>
+        <p>from €1 per person</p>
+        <span>★ 4.9</span>
+      </article>
     </div>
-    <a class="more" href="catalog.html" data-key="more">More</a>
-</section>
 
-    <section class="about">
-        <div class="container about-content">
-            <img src="images/team.png" alt="Our team"/>
-            <div>
-                <h2 data-key="aboutTitle">About us</h2>
-                <p data-key="aboutText">
-                    Questoria is a team of enthusiasts who create live role-playing games (questories),
-                    where participants become the heroes of the story.
-                </p>
-                <a class="seemore" href="about.html" data-key="seeMore">See more</a>
-            </div>
-        </div>
-    </section>
+    <a href="catalog.html" class="more">more</a>
+  </section>
 
-    <footer class="footer">
-        <img src="images/mini-logo.png" alt="logo">
-        Questoria 2025–2026
-    </footer>
+  <section class="about-preview">
+    <img src="images/team.jpg" alt="Questoria team">
 
-    <script src="js/script.js"></script>
-    <script src="js/lang.js"></script>
+    <div class="about-text">
+      <h2>About us</h2>
+      <p>
+        Questoria is a team of enthusiasts who create live role-playing games
+        (questories), where participants become the heroes of the story.
+      </p>
+
+      <a href="about.html" class="see-more">see more</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <img src="images/logo-footer.png" alt="Questoria logo">
+  <p>2020-2026</p>
+</footer>
+
 </body>
 </html>
