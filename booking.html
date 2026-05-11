@@ -10,73 +10,87 @@
 <body>
 
 <header class="header">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="logo">
-    </a>
+  <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Questoria logo">
+  </a>
 
-    <nav class="nav">
-      <a href="catalog.html" data-key="catalog">Catalog</a>
-      <span>|</span>
-      <a href="contacts.html" data-key="contact">Contact</a>
-      <span>|</span>
-      <a href="about.html" data-key="about">About us</a>
-    </nav>
+  <nav class="nav">
+    <a href="catalog.html">Cattalog</a>
+    <span>|</span>
+    <a href="contacts.html">Contact</a>
+    <span>|</span>
+    <a href="about.html">About us</a>
+  </nav>
 
-    <div class="actions">
-      <button class="language">EN</button>
-      <a class="login" href="login.html" data-key="login">Log in</a>
-    </div>
+  <div class="actions">
+    <button class="lang">En</button>
+    <button class="login">Log in</button>
   </div>
 </header>
 
 <main class="booking-page">
-  <h1 data-key="bookingTitle">Booking</h1>
 
-  <form class="booking-card">
-    <label>
-      <span data-key="questName">Quest</span>
-      <select>
-        <option>The Secret of the Kidnapper</option>
-        <option>Hunter and prey</option>
-        <option>Magium</option>
-      </select>
-    </label>
+  <section class="quest-head">
+    <img src="images/img1.png" alt="The Secret of the Kidnapper">
 
-    <label>
-      <span data-key="date">Date</span>
-      <input type="date">
-    </label>
+    <div>
+      <h1>The Secret of the Kidnapper</h1>
+      <div class="meta">
+        <span>★ 5.0</span>
+        <span>👤 1</span>
+        <span>Time: 1h 30min</span>
+        <span>Ultra hard</span>
+        <span>Horror</span>
+      </div>
+    </div>
+  </section>
 
-    <label>
-      <span data-key="time">Time</span>
-      <input type="time">
-    </label>
+  <section class="booking-box">
+    <h2>Choose date and time</h2>
 
-    <label>
-      <span data-key="people">Number of people</span>
-      <input type="number" min="1" max="20" value="1">
-    </label>
+    <div class="schedule">
+      <div class="day">5 May</div>
+      <button>15:30</button>
+      <button>17:00</button>
+      <button>18:30</button>
+      <button>20:00</button>
 
-    <label>
-      <span data-key="name">Name</span>
-      <input type="text" placeholder="Your name">
-    </label>
+      <div class="day">6 May</div>
+      <button>15:30</button>
+      <button class="selected">17:00</button>
+      <button>18:30</button>
+      <button>20:00</button>
 
-    <label>
-      <span data-key="email">Email</span>
-      <input type="email" placeholder="Email">
-    </label>
+      <div class="day">7 May</div>
+      <button>15:30</button>
+      <button>17:00</button>
+      <button>18:30</button>
+      <button>20:00</button>
 
-    <button type="submit" class="booking-btn" data-key="bookBtn">Book now</button>
-  </form>
+      <div class="day">8 May</div>
+      <button>15:30</button>
+      <button>17:00</button>
+      <button>18:30</button>
+      <button>20:00</button>
+
+      <div class="day">9 May</div>
+      <button>15:30</button>
+      <button>17:00</button>
+      <button>18:30</button>
+      <button>20:00</button>
+    </div>
+  </section>
+
+  <div class="booking-bottom">
+    <button class="booking-btn">Booking</button>
+  </div>
+
 </main>
 
 <footer class="footer">
-  <img src="images/mini-logo.png" alt="logo">
-  Questoria 2025–2026
+  <img src="images/logo-footer.png" alt="Questoria logo">
+  <p>2020-2026</p>
 </footer>
 
-<script src="js/script.js"></script>
 </body>
 </html>
