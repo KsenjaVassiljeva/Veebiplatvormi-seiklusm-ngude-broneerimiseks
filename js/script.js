@@ -95,3 +95,5 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 });
+
+localStorage.setItem("user", "Ksenja");
