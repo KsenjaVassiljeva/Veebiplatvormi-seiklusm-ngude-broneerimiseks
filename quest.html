@@ -1,85 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/quest.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
-    <title>Veebiplatvormi-seiklusm-ngude-broneerimiseks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/quest.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
+  <title>The Secret of the Kidnapper</title>
 </head>
 <body>
 
-  <header class="header">
-    <div class="header-container">
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Questoria logo">
+  </a>
 
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="logo">
-      </a>
+  <nav class="nav">
+    <a href="catalog.html">Cattalog</a>
+    <span>|</span>
+    <a href="contacts.html">Contact</a>
+    <span>|</span>
+    <a href="about.html">About us</a>
+  </nav>
 
-      <nav class="nav">
-        <a href="catalog.html">Catalog</a>
-        <span>|</span>
-        <a href="contact.html">Contact</a>
-        <span>|</span>
-        <a href="about.html">About us</a>
-      </nav>
+  <div class="actions">
+    <button class="lang">En</button>
+    <a href="login.html" class="login-small">Log in</a>
+  </div>
+</header>
 
-      <div class="actions">
-        <button class="lang">En</button>
-        <button class="login">Log in</button>
+<main class="quest-page">
+
+  <section class="quest-hero">
+    <img src="images/quest1.jpg" alt="The Secret of the Kidnapper">
+
+    <div class="quest-text">
+      <h1>The Secret of the Kidnapper</h1>
+
+      <div class="meta">
+        <span>★ 5.0</span>
+        <span>👤 1</span>
+        <span>Time: 1h 30min</span>
+        <span>Ultra hard</span>
+        <span>Horror</span>
       </div>
 
+      <p>
+        You find yourself at the center of a disturbing investigation:
+        several people have disappeared without a trace, and all the evidence
+        leads to a single, mysterious kidnapper.
+      </p>
+
+      <p>
+        Every detail could be a key... or a trap. Can you uncover the
+        kidnapper's secret and save the victim?
+      </p>
+
+      <a href="booking.html" class="book-btn">book</a>
     </div>
-  </header>
+  </section>
 
-  <main class="quest-page">
-    <section class="quest-info">
-      <img class="quest-main-img" src="images/img1.png" alt="The Secret of the Kidnapper">
+  <section class="gallery">
+    <h2>Gallery</h2>
 
-      <div class="quest-text">
-        <h1>The Secret of the Kidnapper</h1>
+    <div class="gallery-grid">
+      <img src="images/gallery1.jpg" alt="Quest gallery photo">
+      <img src="images/gallery2.jpg" alt="Quest gallery photo">
+      <img src="images/gallery3.jpg" alt="Quest gallery photo">
+      <img src="images/gallery4.jpg" alt="Quest gallery photo">
+    </div>
+  </section>
 
-        <div class="quest-meta">
-          <span>★ 5.0</span>
-          <span>👤 1-4 </span>
-          <span>Time: 1h 30min</span>
-          <span>Ultra hard</span>
-          <span>Horror</span>
-        </div>
+  <section class="reviews">
+    <h2>Reviews</h2>
 
-        <p>
-          You find yourself at the center of a disturbing investigation:
-          several people have disappeared without a trace, and all the evidence
-          leads to a single, mysterious kidnapper.
-        </p>
-
-        <p>
-          Every detail could be a key... or a trap. Can you uncover the
-          kidnapper's secret and save the victim?
-        </p>
-
-        <a class="book-btn" href="booking.html">Book</a>
-      </div>
-    </section>
-
-    <section class="gallery">
-      <h2>Gallery</h2>
-
-      <div class="gallery-grid">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </section>
-
-    <section class="reviews">
-      <h2>Reviews</h2>
-
-      <div class="review-card">
+    <div class="reviews-grid">
+      <article class="review-card">
         <div class="review-header">
           <div class="avatar"></div>
-          <h3>Hana Song</h3>
+          <h3>Hanna Song</h3>
           <span>★ 5.0</span>
         </div>
 
@@ -89,13 +87,40 @@
           well-thought-out.
         </p>
 
-      <div class="review-icons">
-        <button button class="like-btn">👍</button>
-        <button class="dislike-btn">👎</button>
-      </div>
+        <div class="review-icons">
+          <button class="like-btn">👍</button>
+          <button class="dislike-btn">👎</button>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-header">
+          <div class="avatar"></div>
+          <h3>Hanna Song</h3>
+          <span>★ 5.0</span>
+        </div>
+
+        <p>
+          We went with a group of four, and from the very first minute we were
+          completely immersed in the atmosphere. The puzzles were interesting,
+          and the atmosphere was amazing.
+        </p>
+
+        <div class="review-icons">
+          <button class="like-btn">👍</button>
+          <button class="dislike-btn">👎</button>
+        </div>
+      </article>
     </div>
   </section>
-  </main>
-  <script src="js/script.js"></script>
+
+</main>
+
+<footer class="footer">
+  <img src="images/logo-footer.png" alt="Questoria logo">
+  <p>2020-2026</p>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
