@@ -26,6 +26,23 @@ h1, h2, a, button, input {
   font-family: var(--font-title);
 }
 
+button,
+.book-btn,
+.more,
+.see-more,
+.login-small {
+  transition: 0.3s;
+}
+
+button:hover,
+.book-btn:hover,
+.more:hover,
+.see-more:hover,
+.login-small:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
 /* HEADER */
 
 .header {
