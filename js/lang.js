@@ -5,23 +5,15 @@ const translations = {
     about: "About us",
     login: "Log in",
     recommended: "Recommended quests",
-
     quest1: "The Secret of the Kidnapper",
-    price1: "€5 per person",
-
     quest2: "Hunter and prey",
-    price2: "€3 per person",
-
     quest3: "Magium",
-    price3: "€7 per person",
-
-    more: "More",
-
+    price3: "from €3 per person",
+    price1: "from €1 per person",
+    more: "more",
     aboutTitle: "About us",
-    aboutText:
-      "Questoria is a team of enthusiasts who create live role-playing games where participants become the heroes of the story.",
-
-    seeMore: "See more"
+    aboutText: "Questoria is a team of enthusiasts who create live role-playing games (questories), where participants become the heroes of the story.",
+    seeMore: "see more"
   },
 
   et: {
@@ -30,48 +22,36 @@ const translations = {
     about: "Meist",
     login: "Logi sisse",
     recommended: "Soovitatud mängud",
-
     quest1: "Röövija saladus",
-    price1: "€5 inimese kohta",
-
     quest2: "Kütt ja saak",
-    price2: "€3 inimese kohta",
-
     quest3: "Magium",
-    price3: "€7 inimese kohta",
-
-    more: "Rohkem",
-
+    price3: "alates 3€ inimese kohta",
+    price1: "alates 1€ inimese kohta",
+    more: "rohkem",
     aboutTitle: "Meist",
-    aboutText:
-      "Questoria on entusiastide meeskond, kes loob rollimänge, kus osalejad saavad loo kangelasteks.",
-
-    seeMore: "Vaata rohkem"
+    aboutText: "Questoria on entusiastide meeskond, kes loob elavaid rollimänge, kus osalejad saavad loo kangelasteks.",
+    seeMore: "vaata rohkem"
   }
 };
 
-const btn = document.querySelector(".language");
+document.addEventListener("DOMContentLoaded", () => {
+  const langButton = document.querySelector(".lang");
+  let currentLang = localStorage.getItem("lang") || "en";
 
-let currentLang = localStorage.getItem("lang") || "en";
+  function setLanguage(lang) {
+    document.querySelectorAll("[data-key]").forEach((element) => {
+      const key = element.dataset.key;
+      element.textContent = translations[lang][key];
+    });
 
-function changeLang(lang) {
-  document.querySelectorAll("[data-key]").forEach(el => {
-    const key = el.dataset.key;
-    if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
+    langButton.textContent = lang === "en" ? "Et" : "En";
+  }
+
+  setLanguage(currentLang);
+
+  langButton.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "et" : "en";
+    localStorage.setItem("lang", currentLang);
+    setLanguage(currentLang);
   });
-
-  // показываем текущий язык
-  btn.textContent = lang.toUpperCase();
-
-  localStorage.setItem("lang", lang);
-}
-
-btn.addEventListener("click", () => {
-  currentLang = currentLang === "en" ? "et" : "en";
-  changeLang(currentLang);
 });
-
-// запуск при загрузке
-changeLang(currentLang);

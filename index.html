@@ -15,16 +15,16 @@
   </a>
 
   <nav class="nav">
-    <a href="catalog.html">Cattalog</a>
+    <a href="catalog.html" data-key="catalog">Catalog</a>
     <span>|</span>
-    <a href="contacts.html">Contact</a>
+    <a href="contacts.html" data-key="contact">Contact</a>
     <span>|</span>
-    <a href="about.html">About us</a>
+    <a href="about.html" data-key="about">About us</a>
   </nav>
 
   <div class="actions">
     <button class="lang">En</button>
-    <a href="login.html" class="login-small">Log in</a>
+    <a href="login.html" class="login-small" data-key="login">Log in</a>
   </div>
 </header>
 
@@ -35,45 +35,45 @@
   </section>
 
   <section class="recommended">
-    <h1>Recommended quests</h1>
+    <h1 data-key="recommended">Recommended quests</h1>
 
     <div class="cards">
       <article class="card">
         <img src="images/quest1.jpg" alt="The Secret of the Kidnapper">
-        <h3>The Secret of the Kidnapper</h3>
-        <p>from €3 per person</p>
+        <h3 data-key="quest1">The Secret of the Kidnapper</h3>
+        <p data-key="price3">from €3 per person</p>
         <span>★ 5.0</span>
       </article>
 
       <article class="card">
         <img src="images/quest2.jpg" alt="Hunter and prey">
-        <h3>Hunter and prey</h3>
-        <p>from €3 per person</p>
+        <h3 data-key="quest2">Hunter and prey</h3>
+        <p data-key="price3">from €3 per person</p>
         <span>★ 5.0</span>
       </article>
 
       <article class="card">
         <img src="images/quest3.jpg" alt="Magium">
-        <h3>Magium</h3>
-        <p>from €1 per person</p>
+        <h3 data-key="quest3">Magium</h3>
+        <p data-key="price1">from €1 per person</p>
         <span>★ 4.9</span>
       </article>
     </div>
 
-    <a href="catalog.html" class="more">more</a>
+    <a href="catalog.html" class="more" data-key="more">more</a>
   </section>
 
   <section class="about-preview">
     <img src="images/team.jpg" alt="Questoria team">
 
     <div class="about-text">
-      <h2>About us</h2>
-      <p>
+      <h2 data-key="aboutTitle">About us</h2>
+      <p data-key="aboutText">
         Questoria is a team of enthusiasts who create live role-playing games
         (questories), where participants become the heroes of the story.
       </p>
 
-      <a href="about.html" class="see-more">see more</a>
+      <a href="about.html" class="see-more" data-key="seeMore">see more</a>
     </div>
   </section>
 
@@ -84,5 +84,7 @@
   <p>2020-2026</p>
 </footer>
 
+<script src="js/script.js"></script>
+<script src="js/lang.js"></script>
 </body>
 </html>
