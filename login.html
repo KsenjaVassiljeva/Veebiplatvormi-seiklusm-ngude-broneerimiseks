@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/auth.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
-    <title>Veebiplatvormi-seiklusm-ngude-broneerimiseks</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
+  <title>Login</title>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="logo">
-            </a>
-            <nav class="nav">
-                <a href="catalog.html">Catalog</a>
-                <span>|</span>
-                <a href="contacts.html">Contact</a>
-                <span>|</span>
-                <a href="about.html">About us</a>
-            </nav>
 
-  <button class="lang">En</button>
-  <a href="login.html" class="login-btn">Log in</a>
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Questoria logo">
+  </a>
+
+  <nav class="nav">
+    <a href="catalog.html">Cattalog</a>
+    <span>|</span>
+    <a href="contacts.html">Contact</a>
+    <span>|</span>
+    <a href="about.html">About us</a>
+  </nav>
+
+  <div class="actions">
+    <button class="lang">En</button>
+    <button class="login-small">Log in</button>
+  </div>
 </header>
 
-<main class="auth-page">
-  <h1>Login</h1>
+<main class="login-page">
+  <section class="login-card">
+    <h1>Login</h1>
 
-  <form class="auth-card">
-    <input type="email" placeholder="Email">
-    <div class="password-wrapper">
-     <input type="password" placeholder="Password">
-    </div>
+    <form>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
 
-    <button class="main-btn" type="submit">Login</button>
+      <div class="small-link">
+        Forgot your password? <a href="#">Click Here</a>
+      </div>
 
-    <a class="small-link" href="#">Forgot your password</a>
+      <button class="login-btn" type="submit">Login</button>
 
-    <div class="line"></div>
+      <div class="signup">
+        Need an account?<br>
+        <a href="register.html">Click Here</a>
+      </div>
 
-    <p>Don't have an account? <a href="register.html">Register</a></p>
+      <div class="line"></div>
 
-    <button class="google-btn" type="button">
-      <span class="google-icon">◎</span>
-      Google
-    </button>
-  </form>
+      <p class="or">Sign-Up with</p>
+
+      <button class="google-btn" type="button">
+        <span>G</span> Continue with Google
+      </button>
+    </form>
+  </section>
 </main>
 
 <footer class="footer">
-  <img src="images/mini-logo.png" alt="Questoria">
-  <div>
-    <h2>Questoria</h2>
-    <p>2020-2026</p>
-  </div>
+  <img src="images/logo-footer.png" alt="Questoria logo">
+  <p>2020-2026</p>
 </footer>
-<script src="js/script.js"></script>
 
 </body>
 </html>
