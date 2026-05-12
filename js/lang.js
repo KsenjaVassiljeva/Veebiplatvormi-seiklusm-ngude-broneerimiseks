@@ -56,7 +56,18 @@ const translations = {
     roleDesigner: "Game Designer",
     roleVisual: "Visual & Props Designer",
     roleProducer: "Experience Producer",
-    galleryAbout: "Gallery"
+    galleryAbout: "Gallery",
+    questName: "Quest Name",
+    questDescription: "Description",
+    questDifficulty: "Difficulty",
+    questDuration: "Duration",
+    bookingDate: "Date",
+    bookingTime: "Time",
+    bookingPeople: "Number of People",
+    bookingStatus: "Status",
+    bookingPrice: "Total Price",
+    close: "Close",
+    cancelBooking: "Cancel Booking"
   },
 
   et: {
@@ -113,7 +124,18 @@ const translations = {
     roleDesigner: "Mängudeisainer",
     roleVisual: "Visuaalne-ja kinnistedeisainer",
     roleProducer: "Kogemuse tootja",
-    galleryAbout: "Galerii"
+    galleryAbout: "Galerii",
+    questName: "Mängu nimi",
+    questDescription: "Kirjeldus",
+    questDifficulty: "Raskusaste",
+    questDuration: "Kestus",
+    bookingDate: "Kuupäev",
+    bookingTime: "Kellaaeg",
+    bookingPeople: "Inimeste arv",
+    bookingStatus: "Staatus",
+    bookingPrice: "Kokku hind",
+    close: "Sule",
+    cancelBooking: "Tühista broneering"
   }
 };
 

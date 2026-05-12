@@ -82,19 +82,6 @@
       </section>
     </div>
   </div>
-  <!-- Booking Details Modal -->
-  <div id="bookingDetailsModal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <h2 data-key="bookingDetailsTitle">Booking Details</h2>
-      <div id="modalBookingDetails"></div>
-      <div class="modal-actions">
-        <button class="btn btn-secondary close-modal-btn" data-key="close">Close</button>
-        <button class="btn btn-danger" id="cancelBookingBtn" data-key="cancelBooking">Cancel Booking</button>
-      </div>
-    </div>
-  </div>
-
 </main>
 
 <footer class="footer">
@@ -102,11 +89,133 @@
   <p>2020-2026</p>
 </footer>
 
+<!-- Booking Details Modal -->
+<div id="bookingModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalQuestTitle">Booking Details</h2>
+      <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-detail-item">
+        <strong data-key="questName">Quest Name:</strong>
+        <p id="modalQuestName">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="questDescription">Description:</strong>
+        <p id="modalQuestDescription">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="questDifficulty">Difficulty:</strong>
+        <p id="modalQuestDifficulty">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="questDuration">Duration:</strong>
+        <p id="modalQuestDuration">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="bookingDate">Date:</strong>
+        <p id="modalBookingDate">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="bookingTime">Time:</strong>
+        <p id="modalBookingTime">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="bookingPeople">Number of People:</strong>
+        <p id="modalBookingPeople">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="bookingStatus">Status:</strong>
+        <p id="modalBookingStatus">-</p>
+      </div>
+      <div class="modal-detail-item">
+        <strong data-key="bookingPrice">Total Price:</strong>
+        <p id="modalBookingPrice">-</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeBookingModal()" data-key="close">Close</button>
+      <button class="btn btn-danger" id="cancelBookingBtn" data-key="cancelBooking">Cancel Booking</button>
+    </div>
+  </div>
+</div>
+
 <script src="js/api-client.js"></script>
 <script src="js/script.js"></script>
 <script src="js/lang.js"></script>
 <script src="js/auth.js"></script>
 <script>
+let currentBookingId = null;
+let currentQuest = null;
+
+function closeBookingModal() {
+  document.getElementById('bookingModal').style.display = 'none';
+  currentBookingId = null;
+  currentQuest = null;
+}
+
+async function openBookingModal(booking) {
+  currentBookingId = booking.id;
+  const quest = booking.TimeSlot?.Quest || {};
+  const timeSlot = booking.TimeSlot || {};
+  
+  // Format date
+  let dateStr = 'Unavailable';
+  if (timeSlot.date) {
+    const bookingDate = new Date(timeSlot.date);
+    dateStr = bookingDate.toLocaleDateString();
+  }
+  
+  // Format time
+  let timeStr = 'Unavailable';
+  if (timeSlot.time) {
+    timeStr = timeSlot.time.substring(0, 5);
+  }
+  
+  // Calculate total price
+  const numberOfPeople = booking.numberOfPeople || 1;
+  const pricePerPerson = quest.pricePerPerson || 0;
+  const totalPrice = numberOfPeople * pricePerPerson;
+  
+  // Populate modal
+  document.getElementById('modalQuestTitle').textContent = quest.title || 'Quest Details';
+  document.getElementById('modalQuestName').textContent = quest.title || '-';
+  document.getElementById('modalQuestDescription').textContent = quest.description || '-';
+  document.getElementById('modalQuestDifficulty').textContent = quest.difficulty || '-';
+  document.getElementById('modalQuestDuration').textContent = quest.duration ? `${quest.duration}h` : '-';
+  document.getElementById('modalBookingDate').textContent = dateStr;
+  document.getElementById('modalBookingTime').textContent = timeStr;
+  document.getElementById('modalBookingPeople').textContent = numberOfPeople;
+  document.getElementById('modalBookingStatus').textContent = booking.status || 'Confirmed';
+  document.getElementById('modalBookingPrice').textContent = `€${totalPrice.toFixed(2)}`;
+  
+  // Show modal
+  document.getElementById('bookingModal').style.display = 'block';
+}
+
+async function cancelBooking() {
+  if (!currentBookingId) {
+    alert('Booking ID not found');
+    return;
+  }
+  
+  if (!confirm('Are you sure you want to cancel this booking?')) {
+    return;
+  }
+  
+  try {
+    await apiClient.cancelBooking(currentBookingId);
+    alert('Booking cancelled successfully!');
+    closeBookingModal();
+    // Reload bookings
+    location.reload();
+  } catch (error) {
+    console.error('Error cancelling booking:', error);
+    alert('Error cancelling booking: ' + error.message);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Redirect if not authenticated
   if (!apiClient.isAuthenticated()) {
@@ -176,8 +285,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p><strong>People:</strong> ${booking.numberOfPeople}</p>
               </div>
               <div class="booking-actions">
-                <button class="btn btn-small btn-info" onclick="showBookingDetails(${booking.id})">View Details</button>
-                <button class="btn btn-small btn-danger" onclick="cancelBookingPrompt(${booking.id})">Cancel</button>
+                <button class="btn btn-small" onclick="openBookingModal(${JSON.stringify(booking).replace(/"/g, '&quot;')})">View Details</button>
+                <button class="btn btn-small btn-danger" onclick="if(confirm('Cancel this booking?')) { apiClient.cancelBooking(${booking.id}).then(() => { alert('Booking cancelled!'); location.reload(); }).catch(e => alert('Error: ' + e.message)); }">Cancel</button>
               </div>
             `;
             bookingsContainer.appendChild(bookingCard);
@@ -201,6 +310,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById('editProfileBtn').addEventListener('click', () => {
       alert('Edit profile feature coming soon!');
     });
+    
+    document.getElementById('cancelBookingBtn').addEventListener('click', cancelBooking);
 
   } catch (error) {
     console.error('Error loading profile:', error);
