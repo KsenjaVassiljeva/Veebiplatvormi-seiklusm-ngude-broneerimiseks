@@ -134,6 +134,8 @@ button:hover,
 
 .card {
   text-align: left;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .card img {
@@ -141,6 +143,13 @@ button:hover,
   height: 140px;
   object-fit: cover;
   border-radius: 8px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
 .card h3 {
@@ -274,6 +283,11 @@ button:hover,
 
   .card img {
     height: 160px;
+    transition: transform 0.4s ease;
+  }
+
+  .card:hover img {
+  transform: scale(1.05);
   }
 
   .about-preview {
