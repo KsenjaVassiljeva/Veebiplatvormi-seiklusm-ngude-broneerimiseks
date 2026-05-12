@@ -55,7 +55,7 @@ button:hover,
   background: var(--bg-blue);
 
   display: grid;
-  grid-template-columns: 170px 1fr 220px;
+  grid-template-columns: 170px 1fr 260px;
   align-items: center;
 }
 
@@ -74,7 +74,7 @@ button:hover,
 .actions {
   display: flex;
   justify-content: flex-end;
-  gap: 45px;
+  gap: 15px;
   align-items: center;
 }
 
