@@ -48,41 +48,14 @@
   <section class="booking-box">
     <h2>Choose date and time</h2>
 
-    <div class="schedule">
-      <div class="day">5 May</div>
-      <button>15:30</button>
-      <button>17:00</button>
-      <button>18:30</button>
-      <button>20:00</button>
-
-      <div class="day">6 May</div>
-      <button>15:30</button>
-      <button class="selected">17:00</button>
-      <button>18:30</button>
-      <button>20:00</button>
-
-      <div class="day">7 May</div>
-      <button>15:30</button>
-      <button>17:00</button>
-      <button>18:30</button>
-      <button>20:00</button>
-
-      <div class="day">8 May</div>
-      <button>15:30</button>
-      <button>17:00</button>
-      <button>18:30</button>
-      <button>20:00</button>
-
-      <div class="day">9 May</div>
-      <button>15:30</button>
-      <button>17:00</button>
-      <button>18:30</button>
-      <button>20:00</button>
+    <div class="schedule" id="schedule-container">
+      <p>Loading available times...</p>
     </div>
   </section>
 
   <div class="booking-bottom">
-    <button class="booking-btn">Booking</button>
+    <input type="number" id="people-count" min="1" max="4" value="1" placeholder="Number of people">
+    <button class="booking-btn" id="booking-btn">Booking</button>
   </div>
 
 </main>
@@ -91,6 +64,91 @@
   <img src="images/mini-logo.png" alt="Questoria logo">
   <p>2020-2026</p>
 </footer>
+<script src="js/api-client.js"></script>
+<script>
+  const questId = 1; // Default quest ID
+  let selectedSlot = null;
 
+  document.addEventListener("DOMContentLoaded", async () => {
+    if (!apiClient.isAuthenticated()) {
+      alert('Please log in first');
+      window.location.href = 'login.html';
+      return;
+    }
+
+    try {
+      const slots = await apiClient.getQuestSlots(questId);
+      renderSchedule(slots);
+    } catch (error) {
+      console.error('Error loading slots:', error);
+      document.getElementById('schedule-container').innerHTML = '<p>Error loading available times</p>';
+    }
+
+    document.getElementById('booking-btn').addEventListener('click', async () => {
+      if (!selectedSlot) {
+        alert('Please select a time slot');
+        return;
+      }
+
+      const numberOfPeople = parseInt(document.getElementById('people-count').value);
+
+      try {
+        const response = await apiClient.createBooking(selectedSlot, numberOfPeople);
+        alert('Booking successful! Confirmation: ' + response.booking.id);
+        window.location.href = 'catalog.html';
+      } catch (error) {
+        alert('Booking failed: ' + error.message);
+      }
+    });
+  });
+
+  function renderSchedule(slots) {
+    const container = document.getElementById('schedule-container');
+    const slotsByDate = {};
+
+    // Group slots by date
+    slots.forEach(slot => {
+      const date = new Date(slot.date);
+      const dateKey = date.toLocaleDateString('en-US', { 
+        month: 'numeric', 
+        day: 'numeric', 
+        year: 'numeric' 
+      });
+
+      if (!slotsByDate[dateKey]) {
+        slotsByDate[dateKey] = [];
+      }
+      slotsByDate[dateKey].push(slot);
+    });
+
+    // Render HTML
+    container.innerHTML = '';
+    Object.keys(slotsByDate).forEach(date => {
+      const dayDiv = document.createElement('div');
+      dayDiv.className = 'day';
+      dayDiv.textContent = date;
+      container.appendChild(dayDiv);
+
+      slotsByDate[date].forEach(slot => {
+        const button = document.createElement('button');
+        button.textContent = slot.time.substring(0, 5);
+        button.type = 'button';
+        
+        if (slot.available_slots <= 0) {
+          button.disabled = true;
+          button.style.opacity = '0.5';
+        } else {
+          button.addEventListener('click', () => {
+            document.querySelectorAll('.schedule button').forEach(b => b.classList.remove('selected'));
+            button.classList.add('selected');
+            selectedSlot = slot.id;
+          });
+        }
+        
+        container.appendChild(button);
+      });
+    });
+  }
+</script>
 </body>
 </html>

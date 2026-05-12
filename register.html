@@ -67,6 +67,40 @@
   <p>2020-2026</p>
 </footer>
 
+<script src="js/api-client.js"></script>
 <script src="js/script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        
+        const nameInput = form.querySelector('.name-row input[type="text"]:first-child');
+        const lastNameInput = form.querySelector('.name-row input[type="text"]:last-child');
+        const email = form.querySelector('input[type="email"]').value;
+        const password = form.querySelector('#password').value;
+        
+        const firstName = nameInput.value;
+        const lastName = lastNameInput.value;
+
+        try {
+          if (!firstName || !lastName || !email || !password) {
+            alert('Please fill all fields');
+            return;
+          }
+
+          const response = await apiClient.register(firstName, lastName, email, password);
+          apiClient.setToken(response.token);
+          alert('Registration successful!');
+          window.location.href = 'catalog.html';
+        } catch (error) {
+          alert('Registration failed: ' + error.message);
+        }
+      });
+    }
+  });
+</script>
 </body>
 </html>

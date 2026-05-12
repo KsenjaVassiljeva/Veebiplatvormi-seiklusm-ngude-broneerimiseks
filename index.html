@@ -37,29 +37,8 @@
   <section class="recommended">
     <h1 data-key="recommended">Recommended quests</h1>
 
-    <div class="cards">
-      <article class="card">
-        <a href="quest.html" class="quest-card">
-          <img src="images/img1.png" alt="The Secret of the Kidnapper">
-        </a>
-        <h3 data-key="quest1">The Secret of the Kidnapper</h3>
-        <p data-key="price3">from €3 per person</p>
-        <span>★ 5.0</span>
-      </article>
-
-      <article class="card">
-        <img src="images/img2.png" alt="Hunter and prey">
-        <h3 data-key="quest2">Hunter and prey</h3>
-        <p data-key="price3">from €3 per person</p>
-        <span>★ 5.0</span>
-      </article>
-
-      <article class="card">
-        <img src="images/img3.png" alt="Magium">
-        <h3 data-key="quest3">Magium</h3>
-        <p data-key="price1">from €1 per person</p>
-        <span>★ 4.9</span>
-      </article>
+    <div class="cards" id="quests-container">
+      <p>Loading quests...</p>
     </div>
 
     <a href="catalog.html" class="more" data-key="more">more</a>
@@ -88,5 +67,40 @@
 
 <script src="js/script.js"></script>
 <script src="js/lang.js"></script>
+<script src="js/api-client.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      const quests = await apiClient.getQuests();
+      const container = document.getElementById('quests-container');
+      
+      if (!quests || quests.length === 0) {
+        container.innerHTML = '<p>No quests available</p>';
+        return;
+      }
+
+      container.innerHTML = '';
+      
+      // Show first 3 quests as recommended
+      quests.slice(0, 3).forEach(quest => {
+        const article = document.createElement('article');
+        article.className = 'card';
+        article.innerHTML = `
+          <a href="quest.html?id=${quest.id}" class="quest-card">
+            <img src="${quest.image || 'images/img1.png'}" alt="${quest.title}">
+          </a>
+          <h3>${quest.title}</h3>
+          <p>from €${parseFloat(quest.price_per_person).toFixed(2)} per person</p>
+          <span>★ ${parseFloat(quest.rating).toFixed(1)}</span>
+        `;
+        container.appendChild(article);
+      });
+    } catch (error) {
+      console.error('Error loading quests:', error);
+      document.getElementById('quests-container').innerHTML = '<p>Error loading quests</p>';
+    }
+  });
+</script>
 </body>
 </html>

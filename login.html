@@ -68,6 +68,39 @@
   <img src="images/mini-logo.png" alt="Questoria logo">
   <p>2020-2026</p>
 </footer>
+<script src="js/api-client.js"></script>
 <script src="js/script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        
+        const email = form.querySelector('input[type="email"]').value;
+        const password = form.querySelector('#password').value;
+        const emailError = form.querySelector('.email-error');
+        const passwordError = form.querySelector('.password-error');
+        
+        if (!emailError || !passwordError) {
+          form.insertAdjacentHTML('beforeend', '<div class="email-error"></div><div class="password-error"></div>');
+        }
+
+        try {
+          const response = await apiClient.login(email, password);
+          apiClient.setToken(response.token);
+          alert('Login successful!');
+          window.location.href = 'catalog.html';
+        } catch (error) {
+          const errorDiv = form.querySelector('input[type="email"]').parentElement;
+          const errorElement = form.querySelector('.password-error') || form.appendChild(document.createElement('div'));
+          errorElement.textContent = error.message;
+          errorElement.style.color = 'red';
+        }
+      });
+    }
+  });
+</script>
 </body>
 </html>

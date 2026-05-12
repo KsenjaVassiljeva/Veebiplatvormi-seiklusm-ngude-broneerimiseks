@@ -29,59 +29,50 @@
 </header>
 
 <main class="catalog-page">
-  <section class="cards">
-
-    <a href="quest.html" class="card">
-      <img src="images/img1.png" alt="The Secret of the Kidnapper">
-      <h3 data-key="quest1">The Secret of the Kidnapper</h3>
-      <p data-key="price3">from €3 per person</p>
-      <span>★ 5.0</span>
-    </a>
-
-    <a href="quest.html" class="card">
-      <img src="images/img2.png" alt="Hunter and prey">
-      <h3 data-key="quest2">Hunter and prey</h3>
-      <p data-key="price3">from €3 per person</p>
-      <span>★ 5.0</span>
-    </a>
-
-    <a href="quest.html" class="card">
-      <img src="images/img3.png" alt="Magium">
-      <h3 data-key="quest3">Magium</h3>
-      <p data-key="price1">from €1 per person</p>
-      <span>★ 4.9</span>
-    </a>
-
-    <a href="quest.html" class="card">
-      <img src="images/img4.png" alt="Elven Workshop">
-      <h3 data-key="quest4">Elven Workshop</h3>
-      <p data-key="price3">from €3 per person</p>
-      <span>★ 5.0</span>
-    </a>
-
-    <a href="quest.html" class="card">
-      <img src="images/img5.png" alt="Investigator's Game">
-      <h3 data-key="quest5">Investigator's Game</h3>
-      <p data-key="price3">from €3 per person</p>
-      <span>★ 5.0</span>
-    </a>
-
-    <a href="quest.html" class="card">
-      <img src="images/img6.png" alt="The robbery of the century">
-      <h3 data-key="quest6">The robbery of the century</h3>
-      <p data-key="price4">from €4 per person</p>
-      <span>★ 4.9</span>
-    </a>
-
-  </section>
+  <div id="quests-container" class="cards">
+    <p>Loading quests...</p>
+  </div>
 </main>
 
 <footer class="footer">
   <img src="images/mini-logo.png" alt="Questoria logo">
   <p>2020-2026</p>
 </footer>
-
+<script src="js/api-client.js"></script>
 <script src="js/script.js"></script>
 <script src="js/lang.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.getElementById('quests-container');
+    
+    try {
+      const quests = await apiClient.getQuests();
+      
+      if (!quests || quests.length === 0) {
+        container.innerHTML = '<p>No quests available</p>';
+        return;
+      }
+
+      container.innerHTML = '';
+      
+      quests.forEach(quest => {
+        const card = document.createElement('a');
+        card.href = `quest.html?id=${quest.id}`;
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${quest.image || 'images/img1.png'}" alt="${quest.title}">
+          <h3>${quest.title}</h3>
+          <p>from €${parseFloat(quest.price_per_person).toFixed(2)} per person</p>
+          <span>★ ${parseFloat(quest.rating).toFixed(1)}</span>
+        `;
+        container.appendChild(card);
+      });
+    } catch (error) {
+      console.error('Error loading quests:', error);
+      container.innerHTML = '<p>Error loading quests. Please try again.</p>';
+    }
+  });
+</script>
 </body>
 </html>
