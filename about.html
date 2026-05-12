@@ -9,6 +9,9 @@
 </head>
 <body>
 
+<script src="js/api-client.js"></script>
+<script src="js/auth.js"></script>
+
 <header class="header">
   <a href="index.html" class="logo">
     <img src="images/logo.png" alt="Questoria logo">
@@ -24,7 +27,16 @@
 
   <div class="actions">
     <button class="lang">En</button>
-    <button class="login">Log in</button>
+    <div class="auth-container">
+      <button class="login-small" data-key="login">Log in</button>
+      <div class="user-menu-container" style="display: none;">
+        <button class="user-icon">👤</button>
+        <div class="user-dropdown">
+          <a href="#" class="profile-link" data-key="profile">Profile</a>
+          <a href="#" class="logout-link" data-key="logout">Logout</a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 

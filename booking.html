@@ -24,7 +24,16 @@
 
   <div class="actions">
     <button class="lang">En</button>
-    <button class="login">Log in</button>
+    <div class="auth-container">
+      <button class="login-small" data-key="login">Log in</button>
+      <div class="user-menu-container" style="display: none;">
+        <button class="user-icon">👤</button>
+        <div class="user-dropdown">
+          <a href="#" class="profile-link" data-key="profile">Profile</a>
+          <a href="#" class="logout-link" data-key="logout">Logout</a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -65,6 +74,7 @@
   <p>2020-2026</p>
 </footer>
 <script src="js/api-client.js"></script>
+<script src="js/auth.js"></script>
 <script>
   const questId = 1; // Default quest ID
   let selectedSlot = null;
