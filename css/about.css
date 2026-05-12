@@ -148,12 +148,17 @@ button:hover,
   color: white;
 }
 
-.login {
-  width: 90px;
-  height: 28px;
-  border-radius: 10px;
-  background: var(--dark-blue);
-  color: white;
+.login-small {
+    min-width: 90px;
+    height: 30px;
+    padding: 4px 21px;
+    border-radius: 10px;
+    background: var(--dark-blue);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
 }
 
 /* ABOUT */
