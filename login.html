@@ -24,7 +24,13 @@
 
   <div class="actions">
     <button class="lang">En</button>
-    <button class="user-icon" style="display: none;">👤</button>
+    <div class="user-menu" style="display: none;">
+      <button class="user-icon">👤</button>
+      <div class="dropdown-menu">
+        <a href="#" class="menu-item profile-link" data-key="profile">👤 Profile</a>
+        <a href="#" class="menu-item logout-link" data-key="logout">🚪 Logout</a>
+      </div>
+    </div>
   </div>
 </header>
 

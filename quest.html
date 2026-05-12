@@ -25,7 +25,13 @@
   <div class="actions">
     <button class="lang">En</button>
     <a href="login.html" class="login-small">Log in</a>
-    <button class="user-icon" style="display: none;">👤</button>
+    <div class="user-menu" style="display: none;">
+      <button class="user-icon">👤</button>
+      <div class="dropdown-menu">
+        <a href="#" class="menu-item profile-link" data-key="profile">👤 Profile</a>
+        <a href="#" class="menu-item logout-link" data-key="logout">🚪 Logout</a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -122,6 +128,9 @@
   <p>2020-2026</p>
 </footer>
 
+<script src="js/api-client.js"></script>
 <script src="js/script.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>

@@ -98,7 +98,11 @@ button:hover,
   justify-content: center;
 }
 
-/* USER ICON */
+/* USER MENU */
+.user-menu {
+  position: relative;
+}
+
 .user-icon {
   width: 36px;
   height: 36px;
@@ -117,6 +121,46 @@ button:hover,
 .user-icon:hover {
   transform: scale(1.1);
   background: var(--button-blue-2);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 160px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+.menu-item {
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--dark-blue);
+  transition: 0.3s;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  display: block;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:hover {
+  background: var(--bg-blue);
+  color: #000;
 }
 
 /* HERO */
