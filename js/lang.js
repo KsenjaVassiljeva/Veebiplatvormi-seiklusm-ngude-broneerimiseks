@@ -67,7 +67,8 @@ const translations = {
     bookingStatus: "Status",
     bookingPrice: "Total Price",
     close: "Close",
-    cancelBooking: "Cancel Booking"
+    cancelBooking: "Cancel Booking",
+    loading: "Loading..."
   },
 
   et: {
@@ -135,7 +136,8 @@ const translations = {
     bookingStatus: "Staatus",
     bookingPrice: "Kokku hind",
     close: "Sule",
-    cancelBooking: "Tühista broneering"
+    cancelBooking: "Tühista broneering",
+    loading: "Laadib..."
   }
 };
 

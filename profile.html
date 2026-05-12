@@ -9,6 +9,14 @@
 </head>
 <body>
 
+<!-- Loading Screen -->
+<div id="loadingScreen" class="loading-screen">
+  <div class="loading-spinner">
+    <div class="spinner-circle"></div>
+    <p data-key="loading" class="loading-text">Loading...</p>
+  </div>
+</div>
+
 <header class="header">
   <a href="index.html" class="logo">
     <img src="images/logo.png" alt="Questoria logo">
@@ -312,6 +320,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     
     document.getElementById('cancelBookingBtn').addEventListener('click', cancelBooking);
+
+    // Hide loading screen after content is loaded
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('loadingScreen');
+      if (loadingScreen) {
+        loadingScreen.style.animation = 'fadeOut 0.6s ease-out forwards';
+        loadingScreen.addEventListener('animationend', () => {
+          loadingScreen.style.display = 'none';
+        }, { once: true });
+      }
+    }, 800);
 
   } catch (error) {
     console.error('Error loading profile:', error);
