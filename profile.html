@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/profile.css">
   <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Lora&display=swap" rel="stylesheet">
-  <title>Profile</title>
+  <title>My Profile</title>
 </head>
 <body>
 
@@ -24,32 +24,64 @@
 
   <div class="actions">
     <button class="lang">En</button>
-    <a href="profile.html" class="profile-icon">👤</a>
+    <a href="login.html" class="login-small">Log in</a>
+    <div class="user-menu" style="display: none;">
+      <button class="user-icon">👤</button>
+      <div class="dropdown-menu">
+        <a href="profile.html" class="menu-item profile-link">👤 Profile</a>
+        <a href="#" class="menu-item logout-link">🚪 Logout</a>
+      </div>
+    </div>
   </div>
 </header>
 
 <main class="profile-page">
-  <section class="profile-card">
-    <div class="avatar">👤</div>
-
-    <h1>My Profile</h1>
-
-    <div class="profile-info">
-      <p><strong>Name:</strong> <span id="profileName">Guest</span></p>
-      <p><strong>Email:</strong> <span id="profileEmail">guest@email.com</span></p>
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-avatar">👤</div>
+      <h1 id="userName">Loading...</h1>
+      <p id="userEmail">Loading...</p>
     </div>
 
-    <h2>My Bookings</h2>
+    <div class="profile-content">
+      <section class="profile-section">
+        <h2>Personal Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>First Name</label>
+            <p id="firstName">-</p>
+          </div>
+          <div class="info-item">
+            <label>Last Name</label>
+            <p id="lastName">-</p>
+          </div>
+          <div class="info-item">
+            <label>Email</label>
+            <p id="email">-</p>
+          </div>
+          <div class="info-item">
+            <label>Joined Date</label>
+            <p id="joinedDate">-</p>
+          </div>
+        </div>
+      </section>
 
-    <div class="booking-card">
-      <h3>The Secret of the Kidnapper</h3>
-      <p>Date: 6 May</p>
-      <p>Time: 17:00</p>
-      <p>Status: Active</p>
+      <section class="profile-section">
+        <h2>My Bookings</h2>
+        <div id="bookingsContainer">
+          <p>Loading bookings...</p>
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <h2>Account Settings</h2>
+        <div class="settings">
+          <button class="btn btn-secondary" id="editProfileBtn">Edit Profile</button>
+          <button class="btn btn-danger" id="logoutBtn">Logout</button>
+        </div>
+      </section>
     </div>
-
-    <button class="logout-btn">Log out</button>
-  </section>
+  </div>
 </main>
 
 <footer class="footer">
@@ -57,6 +89,109 @@
   <p>2020-2026</p>
 </footer>
 
-<script src="js/profile.js"></script>
+<script src="js/api-client.js"></script>
+<script src="js/script.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/auth.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  // Redirect if not authenticated
+  if (!apiClient.isAuthenticated()) {
+    window.location.href = 'login.html';
+    return;
+  }
+
+  try {
+    // Load user profile
+    const userInfo = await apiClient.getCurrentUser();
+    const user = userInfo.user;
+
+    // Update profile info
+    document.getElementById('userName').textContent = `${user.firstName} ${user.lastName}`;
+    document.getElementById('userEmail').textContent = user.email;
+    document.getElementById('firstName').textContent = user.firstName;
+    document.getElementById('lastName').textContent = user.lastName;
+    document.getElementById('email').textContent = user.email;
+    
+    // Format joined date
+    if (user.createdAt) {
+      const joinDate = new Date(user.createdAt);
+      document.getElementById('joinedDate').textContent = joinDate.toLocaleDateString();
+    } else {
+      document.getElementById('joinedDate').textContent = 'Unknown';
+    }
+
+    // Load bookings
+    try {
+      const bookings = await apiClient.getMyBookings();
+      const bookingsContainer = document.getElementById('bookingsContainer');
+      
+      if (!bookings || bookings.length === 0) {
+        bookingsContainer.innerHTML = '<p class="no-bookings">No bookings yet. <a href="catalog.html">Browse quests</a></p>';
+      } else {
+        bookingsContainer.innerHTML = '';
+        
+        for (const booking of bookings) {
+          try {
+            // The API returns TimeSlot with nested Quest, so no need to fetch separately
+            const quest = booking.TimeSlot?.Quest || {};
+            const timeSlot = booking.TimeSlot || {};
+            
+            // Format the date and time
+            let dateStr = 'Date unavailable';
+            let timeStr = 'Time unavailable';
+            
+            if (timeSlot.date) {
+              const bookingDate = new Date(timeSlot.date);
+              dateStr = bookingDate.toLocaleDateString();
+            }
+            
+            if (timeSlot.time) {
+              timeStr = timeSlot.time.substring(0, 5); // HH:MM format
+            }
+            
+            const bookingCard = document.createElement('div');
+            bookingCard.className = 'booking-card';
+            bookingCard.innerHTML = `
+              <div class="booking-header">
+                <h3>${quest.title || 'Quest Details Unavailable'}</h3>
+                <span class="booking-status">${booking.status || 'Confirmed'}</span>
+              </div>
+              <div class="booking-details">
+                <p><strong>Date:</strong> ${dateStr}</p>
+                <p><strong>Time:</strong> ${timeStr}</p>
+                <p><strong>People:</strong> ${booking.numberOfPeople}</p>
+              </div>
+              <button class="btn btn-small" onclick="alert('Booking ID: ${booking.id}')">View Details</button>
+            `;
+            bookingsContainer.appendChild(bookingCard);
+          } catch (error) {
+            console.error('Error loading quest details:', error);
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Error loading bookings:', error);
+      document.getElementById('bookingsContainer').innerHTML = '<p>Error loading bookings</p>';
+    }
+
+    // Event listeners
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      apiClient.removeToken();
+      localStorage.removeItem('authToken');
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('editProfileBtn').addEventListener('click', () => {
+      alert('Edit profile feature coming soon!');
+    });
+
+  } catch (error) {
+    console.error('Error loading profile:', error);
+    alert('Error loading profile. Please try again.');
+    window.location.href = 'login.html';
+  }
+});
+</script>
 </body>
 </html>

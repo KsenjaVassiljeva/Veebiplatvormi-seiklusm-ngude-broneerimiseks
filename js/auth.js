@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (profileLink) {
           profileLink.addEventListener("click", (e) => {
             e.preventDefault();
-            alert("Профиль: " + userInfo.user.firstName + " " + userInfo.user.lastName);
+            window.location.href = 'profile.html';
             if (dropdownMenu) dropdownMenu.classList.remove("active");
           });
         }
