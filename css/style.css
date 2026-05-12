@@ -84,7 +84,7 @@ button:hover,
   width: 36px;
   height: 34px;
   border-radius: 8px;
-  background: linear-gradient(180deg, var(--button-blue-1), var(--button-blue-2));
+  background: linear-gradient(180deg, var(--dark-blue));
   color: white;
 }
 
@@ -220,7 +220,7 @@ button:hover,
 }
 
 .see-more {
-  width: 95px;
+  width: 95px;;
   height: 25px;
 }
 
