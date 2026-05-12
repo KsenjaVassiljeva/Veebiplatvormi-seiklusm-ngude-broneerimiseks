@@ -17,7 +17,46 @@ const translations = {
     more: "more",
     aboutTitle: "About us",
     aboutText: "Questoria is a team of enthusiasts who create live role-playing games (questories), where participants become the heroes of the story.",
-    seeMore: "see more"
+    seeMore: "see more",
+    loginTitle: "Login",
+    email: "Email",
+    password: "Password",
+    forgotPassword: "Forgot your password?",
+    loginBtn: "Login",
+    needAccount: "Need an account?",
+    signUpWith: "Sign-Up with",
+    profile: "👤 Profile",
+    logout: "🚪 Logout",
+    registerTitle: "Register",
+    firstName: "Name",
+    lastName: "Last Name",
+    registerBtn: "Register",
+    haveAccount: "Have account?",
+    continueGoogle: "Continue with Google",
+    personalInfo: "Personal Information",
+    myBookings: "My Bookings",
+    accountSettings: "Account Settings",
+    editProfile: "Edit Profile",
+    logoutBtn: "Logout",
+    bookingTitle: "Choose date and time",
+    bookingBtn: "Booking",
+    peopleCount: "Number of people",
+    gallery: "Gallery",
+    reviews: "Reviews",
+    bookBtn: "Book",
+    contactsTitle: "Contacts",
+    contactAddress: "Address",
+    contactPhone: "Phone",
+    contactEmail: "Email",
+    contactHours: "🕘 Opening Hours",
+    contactSocial: "🌐 Social Media",
+    aboutTitle: "About us",
+    teamMembers: "Team Members",
+    roleCreative: "Creative Director",
+    roleDesigner: "Game Designer",
+    roleVisual: "Visual & Props Designer",
+    roleProducer: "Experience Producer",
+    galleryAbout: "Gallery"
   },
 
   et: {
@@ -35,7 +74,46 @@ const translations = {
     more: "rohkem",
     aboutTitle: "Meist",
     aboutText: "Questoria on entusiastide meeskond, kes loob elavaid rollimänge, kus osalejad saavad loo kangelasteks.",
-    seeMore: "vaata rohkem"
+    seeMore: "vaata rohkem",
+    loginTitle: "Sisselogimine",
+    email: "E-post",
+    password: "Parool",
+    forgotPassword: "Unustasid parooli?",
+    loginBtn: "Logi sisse",
+    needAccount: "Vajad kontot?",
+    signUpWith: "Registreeru koos",
+    profile: "👤 Profiil",
+    logout: "🚪 Välju",
+    registerTitle: "Registreerimine",
+    firstName: "Nimi",
+    lastName: "Perekonnanimi",
+    registerBtn: "Registreeri",
+    haveAccount: "Juba kontol olemas?",
+    continueGoogle: "Jätka Googlega",
+    personalInfo: "Isikuandmed",
+    myBookings: "Minu broneerings",
+    accountSettings: "Konto seaded",
+    editProfile: "Muuda profiili",
+    logoutBtn: "Välju",
+    bookingTitle: "Vali kuupäev ja aeg",
+    bookingBtn: "Broneeri",
+    peopleCount: "Inimeste arv",
+    gallery: "Galerii",
+    reviews: "Arvustused",
+    bookBtn: "Broneeri",
+    contactsTitle: "Kontaktid",
+    contactAddress: "Aadress",
+    contactPhone: "Telefon",
+    contactEmail: "E-post",
+    contactHours: "🕘 Tööaeg",
+    contactSocial: "🌐 Sotsiaalmeedia",
+    aboutTitle: "Meist",
+    teamMembers: "Meeskonna liikmed",
+    roleCreative: "Loovtegelane",
+    roleDesigner: "Mängudeisainer",
+    roleVisual: "Visuaalne-ja kinnistedeisainer",
+    roleProducer: "Kogemuse tootja",
+    galleryAbout: "Galerii"
   }
 };
 
@@ -47,6 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-key]").forEach((element) => {
       const key = element.dataset.key;
       element.textContent = translations[lang][key];
+    });
+
+    // Update placeholders
+    document.querySelectorAll("[data-placeholder]").forEach((element) => {
+      const key = element.dataset.placeholder;
+      element.placeholder = translations[lang][key];
     });
 
     langButton.textContent = lang === "en" ? "Et" : "En";

@@ -15,11 +15,11 @@
   </a>
 
   <nav class="nav">
-    <a href="catalog.html">Cattalog</a>
+    <a href="catalog.html" data-key="catalog">Catalog</a>
     <span>|</span>
-    <a href="contacts.html">Contact</a>
+    <a href="contacts.html" data-key="contact">Contact</a>
     <span>|</span>
-    <a href="about.html">About us</a>
+    <a href="about.html" data-key="about">About us</a>
   </nav>
 
   <div class="actions">
@@ -36,13 +36,13 @@
 
 <main class="login-page">
   <section class="login-card">
-    <h1>Login</h1>
+    <h1 data-key="loginTitle">Login</h1>
 
     <form>
-      <input type="email" placeholder="Email">
+      <input type="email" placeholder="Email" data-placeholder="email">
       
       <div class="password-box">
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" data-placeholder="password">
         <button type="button" class="toggle-password">
           👁
         </button>
@@ -50,22 +50,22 @@
       <div class="password-error"></div>
 
       <div class="small-link">
-        Forgot your password? <a href="#">Click Here</a>
+        <span data-key="forgotPassword">Forgot your password?</span> <a href="#">Click Here</a>
       </div>
 
-      <button class="login-btn" type="submit">Login</button>
+      <button class="login-btn" type="submit" data-key="loginBtn">Login</button>
 
       <div class="signup">
-        Need an account?<br>
+        <span data-key="needAccount">Need an account?</span><br>
         <a href="register.html">Click Here</a>
       </div>
 
       <div class="line"></div>
 
-      <p class="or">Sign-Up with</p>
+      <p class="or" data-key="signUpWith">Sign-Up with</p>
 
       <button class="google-btn" type="button">
-        <span>G</span> Continue with Google
+        <span>G</span> <span data-key="continueGoogle">Continue with Google</span>
       </button>
     </form>
   </section>
@@ -77,6 +77,7 @@
 </footer>
 <script src="js/api-client.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/script.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {

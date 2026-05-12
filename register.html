@@ -15,11 +15,11 @@
   </a>
 
   <nav class="nav">
-    <a href="catalog.html">Cattalog</a>
+    <a href="catalog.html" data-key="catalog">Catalog</a>
     <span>|</span>
-    <a href="contacts.html">Contact</a>
+    <a href="contacts.html" data-key="contact">Contact</a>
     <span>|</span>
-    <a href="about.html">About us</a>
+    <a href="about.html" data-key="about">About us</a>
   </nav>
 
   <div class="actions">
@@ -27,7 +27,7 @@
     <div class="user-menu" style="display: none;">
       <button class="user-icon">👤</button>
       <div class="dropdown-menu">
-        <a href="#" class="menu-item profile-link" data-key="profile">👤 Profile</a>
+        <a href="profile.html" class="menu-item profile-link" data-key="profile">👤 Profile</a>
         <a href="#" class="menu-item logout-link" data-key="logout">🚪 Logout</a>
       </div>
     </div>
@@ -36,34 +36,34 @@
 
 <main class="register-page">
   <section class="register-card">
-    <h1>Register</h1>
+    <h1 data-key="registerTitle">Register</h1>
 
     <form>
       <div class="name-row">
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Last Name">
+        <input type="text" placeholder="Name" data-placeholder="firstName">
+        <input type="text" placeholder="Last Name" data-placeholder="lastName">
       </div>
 
-      <input type="email" placeholder="Email">
+      <input type="email" placeholder="Email" data-placeholder="email">
 
       <div class="password-box">
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" data-placeholder="password">
         <button type="button" class="toggle-password">👁</button>
       </div>
 
-      <button class="register-btn" type="submit">Register</button>
+      <button class="register-btn" type="submit" data-key="registerBtn">Register</button>
 
       <div class="login-link">
-        Have account?<br>
+        <span data-key="haveAccount">Have account?</span><br>
         <a href="login.html">Click Here</a>
       </div>
 
       <div class="line"></div>
 
-      <p class="or">Sign-Up with</p>
+      <p class="or" data-key="signUpWith">Sign-Up with</p>
 
       <button class="google-btn" type="button">
-        <span>G</span> Continue with Google
+        <span>G</span> <span data-key="continueGoogle">Continue with Google</span>
       </button>
     </form>
   </section>
@@ -75,6 +75,8 @@
 </footer>
 
 <script src="js/api-client.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/lang.js"></script>
 <script src="js/script.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {

@@ -15,21 +15,21 @@
   </a>
 
   <nav class="nav">
-    <a href="catalog.html">Catalog</a>
+    <a href="catalog.html" data-key="catalog">Catalog</a>
     <span>|</span>
-    <a href="contacts.html">Contact</a>
+    <a href="contacts.html" data-key="contact">Contact</a>
     <span>|</span>
-    <a href="about.html">About us</a>
+    <a href="about.html" data-key="about">About us</a>
   </nav>
 
   <div class="actions">
     <button class="lang">En</button>
-    <a href="login.html" class="login-small">Log in</a>
+    <a href="login.html" class="login-small" data-key="login">Log in</a>
     <div class="user-menu" style="display: none;">
       <button class="user-icon">👤</button>
       <div class="dropdown-menu">
-        <a href="profile.html" class="menu-item profile-link">👤 Profile</a>
-        <a href="#" class="menu-item logout-link">🚪 Logout</a>
+        <a href="profile.html" class="menu-item profile-link" data-key="profile">👤 Profile</a>
+        <a href="#" class="menu-item logout-link" data-key="logout">🚪 Logout</a>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@
 
     <div class="profile-content">
       <section class="profile-section">
-        <h2>Personal Information</h2>
+        <h2 data-key="personalInfo">Personal Information</h2>
         <div class="info-grid">
           <div class="info-item">
             <label>First Name</label>
@@ -67,21 +67,34 @@
       </section>
 
       <section class="profile-section">
-        <h2>My Bookings</h2>
+        <h2 data-key="myBookings">My Bookings</h2>
         <div id="bookingsContainer">
           <p>Loading bookings...</p>
         </div>
       </section>
 
       <section class="profile-section">
-        <h2>Account Settings</h2>
+        <h2 data-key="accountSettings">Account Settings</h2>
         <div class="settings">
-          <button class="btn btn-secondary" id="editProfileBtn">Edit Profile</button>
-          <button class="btn btn-danger" id="logoutBtn">Logout</button>
+          <button class="btn btn-secondary" id="editProfileBtn" data-key="editProfile">Edit Profile</button>
+          <button class="btn btn-danger" id="logoutBtn" data-key="logoutBtn">Logout</button>
         </div>
       </section>
     </div>
   </div>
+  <!-- Booking Details Modal -->
+  <div id="bookingDetailsModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 data-key="bookingDetailsTitle">Booking Details</h2>
+      <div id="modalBookingDetails"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary close-modal-btn" data-key="close">Close</button>
+        <button class="btn btn-danger" id="cancelBookingBtn" data-key="cancelBooking">Cancel Booking</button>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <footer class="footer">
@@ -162,7 +175,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p><strong>Time:</strong> ${timeStr}</p>
                 <p><strong>People:</strong> ${booking.numberOfPeople}</p>
               </div>
-              <button class="btn btn-small" onclick="alert('Booking ID: ${booking.id}')">View Details</button>
+              <div class="booking-actions">
+                <button class="btn btn-small btn-info" onclick="showBookingDetails(${booking.id})">View Details</button>
+                <button class="btn btn-small btn-danger" onclick="cancelBookingPrompt(${booking.id})">Cancel</button>
+              </div>
             `;
             bookingsContainer.appendChild(bookingCard);
           } catch (error) {
