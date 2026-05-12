@@ -73,11 +73,9 @@ button:hover,
 .lang {
   width: 36px;
   height: 34px;
-  border: none;
   border-radius: 8px;
-  background: linear-gradient(180deg, #9CC7EA, #78B3E0);
+  background: linear-gradient(180deg, var(--dark-blue));
   color: white;
-  font-family: var(--font-text);
 }
 
 .login-small {

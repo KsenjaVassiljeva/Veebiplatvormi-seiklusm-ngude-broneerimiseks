@@ -80,12 +80,11 @@ button:hover,
 }
 
 .lang {
-  width: 44px;
-  height: 40px;
+  width: 36px;
+  height: 34px;
   border-radius: 8px;
-  background: linear-gradient(180deg, #9CC7EA, #78B3E0);
+  background: linear-gradient(180deg, var(--dark-blue));
   color: white;
-  font-size: 20px;
 }
 
 .login {
