@@ -34,6 +34,7 @@ const TimeSlot = sequelize.define('TimeSlot', {
     defaultValue: true
   }
 }, {
+  tableName: 'timeslots',
   timestamps: true,
   underscored: true,
   charset: 'utf8mb4'

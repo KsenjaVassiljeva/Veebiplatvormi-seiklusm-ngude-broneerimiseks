@@ -48,6 +48,7 @@ const Quest = sequelize.define('Quest', {
     allowNull: true
   }
 }, {
+  tableName: 'quests',
   timestamps: true,
   underscored: true,
   charset: 'utf8mb4'

@@ -44,6 +44,7 @@ const Booking = sequelize.define('Booking', {
     defaultValue: DataTypes.NOW
   }
 }, {
+  tableName: 'bookings',
   timestamps: true,
   underscored: true,
   charset: 'utf8mb4'

@@ -45,6 +45,7 @@ const User = sequelize.define('User', {
       }
     }
   },
+  tableName: 'users',
   timestamps: true,
   underscored: true,
   charset: 'utf8mb4'

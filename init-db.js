@@ -47,7 +47,7 @@ const initDatabase = async () => {
 
     // Create TimeSlots table
     await connection.query(`
-      CREATE TABLE IF NOT EXISTS time_slots (
+      CREATE TABLE IF NOT EXISTS timeslots (
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         quest_id INT NOT NULL,
         date DATE NOT NULL,
