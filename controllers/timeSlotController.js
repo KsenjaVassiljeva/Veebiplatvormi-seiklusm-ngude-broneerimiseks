@@ -47,6 +47,9 @@ exports.createTimeSlot = async (req, res) => {
     res.status(201).json(slot);
   } catch (error) {
     console.error(error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      return res.status(400).json({ error: 'Time slot already exists for this quest and time' });
+    }
     res.status(500).json({ error: 'Failed to create time slot' });
   }
 };

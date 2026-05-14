@@ -144,9 +144,9 @@
         button.textContent = slot.time.substring(0, 5);
         button.type = 'button';
         
-        if (slot.available_slots <= 0) {
+        if (slot.available_slots <= 0 || !slot.isAvailable) {
           button.disabled = true;
-          button.style.opacity = '0.5';
+          button.classList.add('booked');
         } else {
           button.addEventListener('click', () => {
             document.querySelectorAll('.schedule button').forEach(b => b.classList.remove('selected'));

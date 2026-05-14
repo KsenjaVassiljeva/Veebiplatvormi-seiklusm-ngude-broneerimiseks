@@ -9,8 +9,8 @@ exports.createBooking = async (req, res) => {
       return res.status(404).json({ error: 'Time slot not found' });
     }
 
-    if (timeSlot.availableSlots < numberOfPeople) {
-      return res.status(400).json({ error: 'Not enough available slots' });
+    if (!timeSlot.isAvailable) {
+      return res.status(400).json({ error: 'This time slot is already booked' });
     }
 
     const totalPrice = numberOfPeople * timeSlot.Quest.pricePerPerson;
@@ -23,10 +23,10 @@ exports.createBooking = async (req, res) => {
       status: 'confirmed'
     });
 
-    // Update available slots
-    await TimeSlot.decrement('availableSlots', {
-      by: numberOfPeople,
-      where: { id: timeSlotId }
+    // Mark time slot as unavailable (Private booking policy)
+    await timeSlot.update({
+      isAvailable: false,
+      availableSlots: 0
     });
 
     res.status(201).json({
@@ -35,6 +35,9 @@ exports.createBooking = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      return res.status(400).json({ error: 'This time slot is already booked' });
+    }
     res.status(500).json({ error: 'Failed to create booking' });
   }
 };
@@ -93,8 +96,10 @@ exports.cancelBooking = async (req, res) => {
     }
 
     // Restore available slots
-    await TimeSlot.increment('availableSlots', {
-      by: booking.numberOfPeople,
+    await TimeSlot.update({
+      isAvailable: true,
+      availableSlots: 4 // Or the default max players
+    }, {
       where: { id: booking.timeSlotId }
     });
 

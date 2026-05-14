@@ -56,7 +56,8 @@ const initDatabase = async () => {
         is_available BOOLEAN DEFAULT true,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        FOREIGN KEY (quest_id) REFERENCES quests(id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY (quest_id) REFERENCES quests(id) ON DELETE CASCADE ON UPDATE CASCADE,
+        UNIQUE (quest_id, date, time)
       ) ENGINE=InnoDB CHARSET=utf8mb4
     `);
     console.log('TimeSlots table created');
@@ -74,7 +75,8 @@ const initDatabase = async () => {
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY (time_slot_id) REFERENCES time_slots(id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY (time_slot_id) REFERENCES timeslots(id) ON DELETE CASCADE ON UPDATE CASCADE,
+        UNIQUE (time_slot_id)
       ) ENGINE=InnoDB CHARSET=utf8mb4
     `);
     console.log('Bookings table created');
@@ -102,7 +104,7 @@ const initDatabase = async () => {
 
         for (const time of times) {
           await connection.query(
-            `INSERT IGNORE INTO time_slots (quest_id, date, time, available_slots, is_available) 
+            `INSERT IGNORE INTO timeslots (quest_id, date, time, available_slots, is_available) 
              VALUES (?, ?, ?, 4, true)`,
             [questId, dateStr, time]
           );

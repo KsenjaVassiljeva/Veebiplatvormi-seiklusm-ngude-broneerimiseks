@@ -37,7 +37,13 @@ const TimeSlot = sequelize.define('TimeSlot', {
   tableName: 'timeslots',
   timestamps: true,
   underscored: true,
-  charset: 'utf8mb4'
+  charset: 'utf8mb4',
+  indexes: [
+    {
+      unique: true,
+      fields: ['quest_id', 'date', 'time']
+    }
+  ]
 });
 
 module.exports = TimeSlot;
