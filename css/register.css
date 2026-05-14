@@ -264,6 +264,26 @@ button:hover,
   font-size: 11px;
 }
 
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.terms input {
+  width: auto;
+  height: auto;
+  margin-top: 2px;
+}
+
+.terms a {
+  color: var(--dark-blue);
+  text-decoration: underline;
+}
+
 .google-btn span {
   color: #db4437;
   font-weight: bold;

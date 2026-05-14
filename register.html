@@ -50,6 +50,16 @@
         <input type="password" placeholder="Password" id="password" data-placeholder="password">
         <button type="button" class="toggle-password">👁</button>
       </div>
+      
+      <div class="terms">
+        <input type="checkbox" id="agree" required>
+        <label for="agree">
+          I agree with
+          <a href="terms.html">Terms</a>
+          and
+          <a href="privacy.html">Privacy Policy</a>
+        </label>
+      </div>
 
       <button class="register-btn" type="submit" data-key="registerBtn">Register</button>
 
@@ -99,6 +109,13 @@
             alert('Please fill all fields');
             return;
           }
+
+          const agree = form.querySelector("#agree").checked;
+          
+          if (!agree) {
+            alert("Please agree with Terms and Privacy Policy");
+            return;
+}
 
           const response = await apiClient.register(firstName, lastName, email, password);
           apiClient.setToken(response.token);

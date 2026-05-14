@@ -2,6 +2,14 @@
 
 This is a full-stack web application for booking quest rooms. The project includes a frontend built with HTML, CSS, and JavaScript, and a backend built with Node.js, Express, MySQL, and Sequelize.
 
+## Technology Stack
+
+- **Backend Framework:** Express.js - A minimal and flexible Node.js web application framework used to build RESTful APIs and handle HTTP requests/responses for the quest booking platform
+- **Database:** MySQL with Sequelize ORM for data management
+- **Frontend:** HTML5, CSS3, and Vanilla JavaScript
+- **Authentication:** JWT (JSON Web Tokens)
+- **Password Hashing:** bcryptjs
+
 ## Project Structure
 
 ```
