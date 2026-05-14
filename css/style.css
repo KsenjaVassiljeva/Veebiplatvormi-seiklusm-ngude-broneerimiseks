@@ -8,8 +8,36 @@
   --button-blue-2: #78B3E0;
 }
 
-* {
-  box-sizing: border-box;
+/* ─── KEYFRAMES (добавлены, так как в оригинале их не было) ─── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Мягкое появление карточек: лёгкий подъём + масштаб */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+* { 
+  box-sizing: border-box; 
 }
 
 body {
@@ -19,9 +47,9 @@ body {
   font-family: var(--font-text);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a { 
+  color: inherit; 
+  text-decoration: none; 
 }
 
 button {
@@ -30,37 +58,32 @@ button {
   font-family: var(--font-text);
 }
 
-button,
-.book-btn,
-.more,
-.see-more,
-.login-small {
-  transition: 0.3s;
+button, .book-btn, .more, .see-more, .login-small { 
+  transition: 0.3s; 
 }
 
-button:hover,
-.book-btn:hover,
-.more:hover,
-.see-more:hover,
-.login-small:hover {
+button:hover, .book-btn:hover, .more:hover, .see-more:hover, .login-small:hover {
   transform: translateY(-3px);
   opacity: 0.9;
 }
 
 /* HEADER */
-
 .header {
   height: 70px;
   padding: 0 45px;
   background: var(--bg-blue);
-
   display: grid;
   grid-template-columns: 170px 1fr 260px;
   align-items: center;
+  animation: fadeInDown 1s ease;
 }
 
-.logo img {
-  height: 48px;
+.hero img { 
+  animation: fadeIn 1.5s ease; 
+}
+
+.logo img { 
+  height: 48px; 
 }
 
 .nav {
@@ -93,7 +116,6 @@ button:hover,
   border-radius: 10px;
   background: var(--dark-blue);
   color: white;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -101,8 +123,8 @@ button:hover,
 }
 
 /* USER MENU */
-.user-menu {
-  position: relative;
+.user-menu { 
+  position: relative; 
 }
 
 .user-icon {
@@ -142,8 +164,8 @@ button:hover,
 }
 
 .dropdown-menu.active {
-  display: flex;
-}
+   display: flex; 
+  }
 
 .menu-item {
   padding: 12px 16px;
@@ -156,17 +178,14 @@ button:hover,
   display: block;
 }
 
-.menu-item:last-child {
-  border-bottom: none;
+.menu-item:last-child { 
+  border-bottom: none; 
 }
-
-.menu-item:hover {
-  background: var(--bg-blue);
-  color: #000;
+.menu-item:hover { 
+  background: var(--bg-blue); color: #000; 
 }
 
 /* HERO */
-
 .hero img {
   width: 100%;
   height: 260px;
@@ -175,7 +194,6 @@ button:hover,
 }
 
 /* RECOMMENDED */
-
 .recommended {
   padding: 38px 60px 55px;
   text-align: center;
@@ -191,16 +209,29 @@ button:hover,
 .cards {
   max-width: 760px;
   margin: 0 auto;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 35px;
 }
 
+
 .card {
   text-align: left;
   overflow: hidden;
   border-radius: 8px;
+  opacity: 0;
+  animation: cardAppear 0.5s ease forwards;
+}
+
+
+.card:nth-child(1) { 
+  animation-delay: 0.1s; 
+}
+.card:nth-child(2) { 
+  animation-delay: 0.25s; 
+}
+.card:nth-child(3) { 
+  animation-delay: 0.4s; 
 }
 
 .card img {
@@ -208,7 +239,6 @@ button:hover,
   height: 140px;
   object-fit: cover;
   border-radius: 8px;
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -217,55 +247,49 @@ button:hover,
   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
-.card h3 {
-  margin: 12px 0 2px;
-  font-family: var(--font-title);
-  font-size: 12px;
+.card h3 { 
+  margin: 12px 0 2px; 
+  font-family: var(--font-title); 
+  font-size: 12px; 
+}
+.card p { 
+  margin: 0 0 12px; 
+  font-size: 10px; 
+}
+.card span { 
+  font-size: 10px; 
 }
 
-.card p {
-  margin: 0 0 12px;
-  font-size: 10px;
-}
-
-.card span {
-  font-size: 10px;
-}
-
-.more,
-.see-more {
+.more, .see-more {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   background: linear-gradient(180deg, var(--button-blue-1), var(--button-blue-2));
   color: white;
   border-radius: 7px;
   transition: 0.3s;
 }
 
-.more:hover,
-.see-more:hover {
-  transform: translateY(-2px);
+.more:hover, 
+.see-more:hover { 
+  transform: translateY(-2px); 
 }
-
-.more {
-  width: 90px;
-  height: 24px;
-  margin-top: 38px;
+.more { 
+  width: 90px; 
+  height: 24px; 
+  margin-top: 38px; 
 }
 
 /* ABOUT */
-
 .about-preview {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 0 95px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 55px;
+  animation: fadeInUp 1s ease;
 }
 
 .about-preview img {
@@ -275,36 +299,31 @@ button:hover,
   border-radius: 6px;
 }
 
-.about-text {
-  width: 350px;
-  text-align: center;
+.about-text { 
+  width: 350px; 
+  text-align: center; 
 }
-
 .about-text h2 {
-  margin: 0 0 25px;
-  font-family: var(--font-title);
-  font-size: 24px;
-  font-weight: 400;
+   margin: 0 0 25px; 
+   font-family: var(--font-title);
+   font-size: 24px; 
+   font-weight: 400; 
+  }
+.about-text p { 
+  margin: 0 0 25px; 
+  font-size: 15px; 
+  line-height: 1.3; 
 }
-
-.about-text p {
-  margin: 0 0 25px;
-  font-size: 15px;
-  line-height: 1.3;
-}
-
-.see-more {
-  width: 95px;;
-  height: 25px;
+.see-more { 
+  width: 95px; 
+  height: 25px; 
 }
 
 /* FOOTER */
-
 .footer {
   height: 90px;
   background: var(--bg-blue);
   color: #A0BBD0;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -312,18 +331,10 @@ button:hover,
   gap: 2px;
 }
 
-.footer img {
-  width: 130px;
-  opacity: 0.7;
-}
-
-.footer p {
-  margin: 0;
-  font-size: 12px;
-}
+.footer img { width: 130px; opacity: 0.7; }
+.footer p { margin: 0; font-size: 12px; }
 
 /* ADAPTIVE */
-
 @media (max-width: 750px) {
   .header {
     height: auto;
@@ -333,34 +344,49 @@ button:hover,
     justify-items: center;
   }
 
-  .actions {
-    gap: 25px;
+  .actions { 
+    gap: 25px; 
   }
 
-  .nav {
-    flex-wrap: wrap;
+  .nav { 
+    flex-wrap: wrap; 
   }
 
   .cards {
-    grid-template-columns: 1fr;
-    max-width: 320px;
+    text-align: left;
+    overflow: hidden;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
   }
+
+  .cards:hover{
+    transform: translateY(-4px);
+  }
+
+  .cards.card-ready {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
   .card img {
     height: 160px;
     transition: transform 0.4s ease;
   }
 
-  .card:hover img {
-  transform: scale(1.05);
+  .card:hover img { 
+    transform: scale(1.05); 
   }
+  
 
   .about-preview {
     flex-direction: column;
     padding: 0 20px 70px;
   }
 
-  .about-text {
-    width: 100%;
+  .about-text { 
+    width: 100%; 
   }
 }
